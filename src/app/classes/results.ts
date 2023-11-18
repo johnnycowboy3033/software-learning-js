@@ -26,6 +26,7 @@ export class Results {
 
  */
 
+
   constructor(data:{
     ShowPage: boolean,
     TypeResults?:string,
@@ -56,6 +57,20 @@ export class Results {
   //Show
   get showArrayResults(): boolean {return this._showArrayResults;}
   set showArrayResults(value: boolean) {this._showArrayResults = value;}
+
+  toString(){
+    let returnTemp = "";
+
+    returnTemp = returnTemp + "\n showPage: " + this.showPage;
+    returnTemp = returnTemp + "\n typeResult: " + this.typeResult;
+    returnTemp = returnTemp + "\n assignStatement: ";
+
+    for( const[index,element] of this.assignStatement.entries()){
+      returnTemp = returnTemp + "["+ index +"] = " + element;
+    }
+
+    return returnTemp;
+  }
 
   run(context:any){
 
@@ -126,5 +141,7 @@ export class Results {
 
     this._showArrayResults = true;
   }
+
+
 
 }
