@@ -1,5 +1,5 @@
 import {HelperService} from "../services/helper.service";
-import {Context} from "./context";
+
 import {ArrayTypeResults} from "../enumerates/array/array-type-results";
 
 export class Results {
@@ -12,6 +12,10 @@ export class Results {
   private _assignStatement:string[] = [];
   private _code:string = "";
 
+  private _resultArray:string[] = [];
+
+  //Show parts of the webpage
+  private _showArrayResults:boolean = false;
 
 
   /*
@@ -46,6 +50,13 @@ export class Results {
   get code(): string {return this._code;}
   set code(value: string) {this._code = value;}
 
+  get resultArray(): string[] {return this._resultArray;}
+  set resultArray(value: string[]) {this._resultArray = value;}
+
+  //Show
+  get showArrayResults(): boolean {return this._showArrayResults;}
+  set showArrayResults(value: boolean) {this._showArrayResults = value;}
+
   run(context:any){
 
     // console.log(" < ***** Run Results ***** > ");
@@ -67,7 +78,7 @@ export class Results {
 
     if (this._typeResult === ArrayTypeResults.ResultArray) {
       // console.log('Case : ' + this._typeResult);
-      this.resultArray();
+      this.findResultArray();
     } else {
       console.log('ERROR: run-function-array-.component - submitForm - Did not find-array assign the Type Result in the Component Context in the Array Module.')
     }
@@ -77,27 +88,43 @@ export class Results {
 
     let buildAssign = "";
     for( const[index,element]  of this._context.begin.defaultNames.entries()){
+
+      let temp = "";
+/*
+      Create the assignment statement which can be an array or string.
+      For example might be for array to create
+          let peoples = ["Cecilie", "Lone", "Emil", "Tobias", "Linus"];
+       or for string
+          let helloWorld = "Hello World" ;
+
+ */
       if(Array.isArray(this._context.variableValues[index])){
-        let temp = this._context.variableValues[index].join();
+        temp= this._context.variableValues[index].join();
         temp = temp.replaceAll(',','","');
-
         this._assignStatement[index] = 'let '+element+' = ["'+ temp  +'"];';
-
-        buildAssign = buildAssign + this._assignStatement[index];
+      }else{
+        temp= this._context.variableValues[index]
+        this._assignStatement[index] = 'let '+element+' = "'+ temp  +'";';
       }
+
+      buildAssign = buildAssign + this._assignStatement[index];
 
     }
 
     return buildAssign;
   }
 
-  resultArray(){
+  findResultArray(){
     //Run the code
-    let results = eval(this.createAssignStatement() + " " + this._code );
+   this._resultArray = eval(this.createAssignStatement() + " " + this._code );
 
-    for( const[index,element] of results.entries()){
+/*
+    for( const[index,element] of this._resultArray.entries()){
       console.log( "["+index+"] = " + element);
     }
+ */
+
+    this._showArrayResults = true;
   }
 
 }

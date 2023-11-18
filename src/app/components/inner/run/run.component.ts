@@ -75,7 +75,6 @@ export class RunComponent extends  MainModule implements OnInit {
 
 /*
     console.log( 'Code Editor = '  + this.code);
-    console.log( 'Results Type = '  + this.typeResults);
 */
     this.showSuccess = true;
     this.displayMessage = "";
@@ -90,6 +89,19 @@ export class RunComponent extends  MainModule implements OnInit {
     if(this.code == "" || this.code == null ){
       this.displayMessage  = this.displayMessage  + 'Editor has no text.';
       this.showSuccess = false;
+    }
+
+    //The user must select the correct Type Results Radio Button
+    if( typeof this.results.typeResult != 'undefined'){
+
+      let radioButtonTypeResult = this.results.typeResult;
+      let serviceTypeResult = this.service.context.get(this.title).code.typeResults;
+
+      if( radioButtonTypeResult !=  serviceTypeResult){
+        this.displayMessage  = this.displayMessage  + 'You select the wrong Type Result. Correct Type Result is ' +
+            serviceTypeResult.toUpperCase() + " not " + radioButtonTypeResult.toUpperCase() + '. ';
+        this.showSuccess = false;
+      }
     }
 
     this._sendResult.emit( this.results );

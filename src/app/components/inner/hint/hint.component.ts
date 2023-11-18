@@ -101,7 +101,7 @@ export class HintComponent  extends MainModule implements OnInit  {
 
     this.contextMap.begin.defaultNames.forEach((value:string,index:number,array:any)=>{
       if(checkValue.includes(symbols[index])){
-        result =  result.replace(symbols[index],value.toLowerCase());
+        result =  result.replace(symbols[index],value);
       }
     });
 

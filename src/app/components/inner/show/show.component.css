@@ -1,0 +1,16 @@
+.table-data{
+    margin: 10px;
+}
+
+table, td, th {
+    border: 3px solid darkblue;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td {
+    text-align: center;
+}

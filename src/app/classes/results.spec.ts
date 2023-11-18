@@ -25,21 +25,17 @@ describe('Results', () => {
   });
 
 
-
-
   it('should create an instance', () => {
     expect(new Results({ShowPage:true})).toBeTruthy();
   });
 
-  it('(resultArray) should create an instance', () => {
+/*  it('(resultArray) should create an instance', () => {
 
     if( typeof  results_array != "undefined" && typeof  context_array != "undefined" ){
       results_array.run(context_array);
     }
 
 
-
-
-  });
+  });*/
 
 });

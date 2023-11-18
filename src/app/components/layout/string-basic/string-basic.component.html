@@ -5,10 +5,10 @@
 
   <app-initialize></app-initialize>
 
-  <app-show></app-show>
+  <app-show [displayResult] ="results" ></app-show>
 
   <div class="work-area">
-    <app-run></app-run>
+    <app-run (_sendResult)="setResults($event)"></app-run>
     <app-hint></app-hint>
   </div>
 
