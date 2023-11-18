@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="page-header">
+    <h1><span class="section-component-type">{{componentType}}</span>&nbsp;<span class="section-page">{{title}}</span></h1>
+  </div>
+
+  <app-initialize-array></app-initialize-array>
+
+  <app-show [displayResult] ="results" > </app-show>
+
+  <div class="work-area">
+    <app-run (_sendResult)="setResults($event)"></app-run>
+    <app-hint></app-hint>
+  </div>
+
+</div>
+
+

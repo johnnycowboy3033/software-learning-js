@@ -1,0 +1,16 @@
+<div class="container">
+  <h1 class="section-page">{{title}}</h1>
+
+  <p>The exec and test methods are similar to the match method. The only difference is that the match method returns all
+    matches in an array, while with exec and test methods, we need a looping structure.</p>
+
+  <p>lastIndex is a read/write property of RegExp objects. For regular expressions with the "g" attribute set, it contains
+    an integer that specifies the character position immediately following the last match found by the RegExp.exec() and RegExp.test() methods.
+    These methods use this property as the starting point for their next search.</p>
+
+  <p>This property allows you to call those methods repeatedly, to loop through all matches in a string, and works only if the "g" modifier is set.</p>
+
+  <p>This property is read/write, so you can set it at any time to specify where the following search should begin in the target string. exec()
+    and test() automatically reset the lastIndex to 0 when they fail to find a match (or another match).</p>
+</div>
+

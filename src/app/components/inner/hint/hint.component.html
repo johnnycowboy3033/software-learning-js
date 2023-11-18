@@ -1,0 +1,88 @@
+<h2 class="section-header" >Hint</h2>
+<br>
+<form (ngSubmit)="hint()">
+  <div *ngIf="showHint; else elseBlockDescription">
+    <h4><b>{{this.codeDescription}}</b></h4>
+  </div>
+  <br>
+  <div>
+    <ng-template #elseBlockDescription>
+    </ng-template>
+  </div>
+
+  <div *ngIf="showFunc; else elseBlockFunc">
+    <p>{{this.type}}  {{this.displayMethod}}  &#123; </p>
+    <p class="logic-space">{{this.displayLogic}}</p>
+    <p>&#125; ;</p>
+  </div>
+  <div>
+    <ng-template #elseBlockFunc>
+    </ng-template>
+  </div>
+
+  <div *ngIf="showHint; else elseBlockCall">
+    <p >{{this.displayCall}}</p>
+  </div>
+  <div>
+    <ng-template #elseBlockCall>
+    </ng-template>
+  </div>
+
+  <div *ngIf="showTable; else elseBlockTable">
+
+    <h2 class="section-header" >Method Parameters</h2>
+    <p>{{ displayTableCode }}</p>
+    <table>
+      <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let element of table; let i = index" class="array-elements" >
+        <td class="block-index">
+          {{element[0] }}
+        </td>
+        <td class="block-element">
+          {{element[1] }}
+        </td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <ng-template #elseBlockTable>
+    </ng-template>
+  </div>
+
+  <div *ngIf="showArgument; else elseBlockArgument">
+    <h2 class="section-header" >Function Parameters</h2>
+    <table>
+      <thead>
+      <tr>
+        <th>Argument</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let element of argument; let i = index" class="array-elements" >
+        <td class="block-index">
+          {{element[0] }}
+        </td>
+        <td class="block-element">
+          {{element[1] }}
+        </td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <ng-template #elseBlockArgument>
+    </ng-template>
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary" >Hint</button>
+</form>

@@ -1,0 +1,76 @@
+<div class="container">
+
+
+  <form class="code-form" [formGroup]="radioGroup" >
+    <!-- type results -->
+    <div class="ctrl-row --result form-element">
+      <label  class="ctrl-label" >
+        <h2 class="section-header">Type Results</h2></label>
+      <div class="radio-group ctrl">
+
+        <table>
+          <tr>
+            <td>
+              <!-- Exec Method -->
+              <div class="radio-option --exec-method" >
+                <input type="radio" class="radio-ctrl" id="exec-method" name="results" value="EM" formControlName="results" (change)="changeTypeResult($event)">
+                <label for="exec-method" class="radio-label" >{{getTypeResult().ExecMethod}}</label>
+              </div >
+            </td>
+            <td>
+              <!-- Replace Method -->
+              <div class="radio-option --replace-method" >
+                <input type="radio" class="radio-ctrl" id="replace-method" name="results" value="RM" formControlName="results" (change)="changeTypeResult($event)">
+                <label for="replace-method" class="radio-label" >{{getTypeResult().ReplaceMethod}}</label>
+              </div >
+            </td>
+            <td>
+              <!-- Return Boolean -->
+              <div class="radio-option --return-boolean" >
+                <input type="radio" class="radio-ctrl" id="return-boolean" name="results" value="RB" formControlName="results" (change)="changeTypeResult($event)">
+                <label for="return-boolean" class="radio-label" >{{getTypeResult().ReturnBoolean}}</label>
+              </div >
+            </td>
+            <td>
+              <!-- Match Method -->
+              <div class="radio-option --match-method" >
+                <input type="radio" class="radio-ctrl" id="match-method" name="results" value="MM" formControlName="results" (change)="changeTypeResult($event)">
+                <label for="match-method" class="radio-label" >{{getTypeResult().MatchMethod}}</label>
+              </div >
+            </td>
+
+
+          </tr>
+
+          <tr>
+
+            <td>
+              <!-- Match Method -->
+              <div class="radio-option --match-all-method" >
+                <input type="radio" class="radio-ctrl" id="match-all-method" name="results" value="MA" formControlName="results" (change)="changeTypeResult($event)">
+                <label for="match-all-method" class="radio-label" >{{getTypeResult().MatchAllMethod}}</label>
+              </div >
+            </td>
+
+            <td>
+              <!-- Search Method -->
+              <div class="radio-option --search-method" >
+                <input type="radio" class="radio-ctrl" id="search-method" name="results" value="SM" formControlName="results" (change)="changeTypeResult($event)">
+                <label for="search-method" class="radio-label" >{{getTypeResult().SearchMethod}}</label>
+              </div >
+            </td>
+
+            <td></td>
+            <td></td>
+
+          </tr>
+
+        </table>
+
+
+      </div>
+    </div>
+
+  </form>
+
+</div>

@@ -1,0 +1,17 @@
+<div class="work-area">
+
+  <!-- <h2>{{this.title}}</h2> -->
+
+  <h2 id="list-elements" class="section-header" >Initialize String</h2>
+
+  <table class="table-assign">
+    <tr>
+          <div *ngFor="let element of assignStatement; index as j"  class="col">
+
+                <td class="table-string">  let  <span class="element-assign">{{ element[j][0] }}</span>   =  &#34;<span class="element-data">{{element[j][1] }}</span>&#34; &#59;  </td>
+
+          </div>
+    </tr>
+  </table>
+
+</div>
