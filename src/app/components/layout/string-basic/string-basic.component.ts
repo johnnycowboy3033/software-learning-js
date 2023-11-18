@@ -5,6 +5,7 @@ import {MainModule} from "../../../modules/main/main.module";
 
 import {StringService} from "../../../services/string/string.service";
 import {HelperService} from "../../../services/helper.service";
+import {Results} from "../../../classes/results";
 
 
 
@@ -17,6 +18,8 @@ export class StringBasicComponent extends MainModule implements  OnInit {
 
   ngOnInit(): void {
   }
+
+  results:Results =new Results({ShowPage:false});
 
   constructor(private router: Router, stringService : StringService){
     super();
@@ -32,5 +35,18 @@ export class StringBasicComponent extends MainModule implements  OnInit {
     }
 
   };
+
+  setResults($event:Results){
+
+    this.results = $event;
+
+    this.results.showPage = true;
+
+    /*    console.log("Should view Show Component ? " +   this.results.showPage);
+        console.log("Type Result: " +   this.results.typeResult);*/
+
+
+  }
+
 
 }

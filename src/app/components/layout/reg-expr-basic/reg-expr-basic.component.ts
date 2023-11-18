@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {RegExprService} from "../../../services/reg-expr/reg-expr.service";
 import {HelperService} from "../../../services/helper.service";
 import {MainModule} from "../../../modules/main/main.module";
+import {Results} from "../../../classes/results";
 
 @Component({
   selector: 'app-reg-expr-basic',
@@ -14,6 +15,8 @@ export class RegExprBasicComponent extends MainModule implements  OnInit {
 
   ngOnInit(): void {
   }
+
+  results:Results =new Results({ShowPage:false});
 
   constructor(router: Router, regExprService : RegExprService){
     super();
@@ -29,5 +32,17 @@ export class RegExprBasicComponent extends MainModule implements  OnInit {
     }
 
   };
+
+  setResults($event:Results){
+
+    this.results = $event;
+
+    this.results.showPage = true;
+
+    /*    console.log("Should view Show Component ? " +   this.results.showPage);
+        console.log("Type Result: " +   this.results.typeResult);*/
+
+
+  }
 
 }
