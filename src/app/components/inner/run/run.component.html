@@ -1,0 +1,51 @@
+<form class="code-form" [formGroup]="codeForm"  (ngSubmit)="submitForm()">
+
+  <h2 class="section-header" > Code Editor</h2>
+  <!-- code -->
+  <div class="ctrl-row --code">
+    <textarea type="text" class="ctrl" id="code" name="code" rows="10" cols="100"  formControlName="code"> </textarea>
+  </div>
+
+   <!-- Type Result Radio Button -->
+  <div *ngIf="showArray; else elseBlockCall">
+    <app-type-result-array (_sendTypeResult)="setTypeResults($event)"></app-type-result-array>
+  </div>
+  <div>
+    <ng-template #elseBlockCall>
+    </ng-template>
+  </div>
+
+  <div *ngIf="showString; else elseBlockCall">
+    <app-type-result-string (_sendTypeResult)="setTypeResults($event)"></app-type-result-string>
+  </div>
+  <div>
+    <ng-template #elseBlockCall>
+    </ng-template>
+  </div>
+
+  <div *ngIf="showRegExpr; else elseBlockCall">
+    <app-type-result-reg-expr (_sendTypeResult)="setTypeResults($event)"></app-type-result-reg-expr>
+  </div>
+  <div>
+    <ng-template #elseBlockCall>
+    </ng-template>
+  </div>
+
+
+  <!-- Submit button -->
+  <div class="form-element">
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </div>
+
+  <!-- Messages -->
+  <div *ngIf="showMessage;">
+      <div *ngIf="showSuccess;" class="message alert alert-success">
+        {{ this.displayMessage }}
+      </div>
+
+      <div *ngIf="!showSuccess;" class="message alert alert-danger">
+        {{ this.displayMessage }}
+      </div>
+  </div>
+
+</form>
