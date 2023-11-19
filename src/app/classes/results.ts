@@ -119,7 +119,7 @@ export class Results {
         this._assignStatement[index] = 'let '+element+' = ["'+ temp  +'"];';
       }else{
         temp= this._context.variableValues[index]
-        this._assignStatement[index] = 'let '+element+' = "'+ temp  +'";';
+        this._assignStatement[index] = 'let '+element+' = '+ temp  +';';
       }
 
       buildAssign = buildAssign + this._assignStatement[index];
