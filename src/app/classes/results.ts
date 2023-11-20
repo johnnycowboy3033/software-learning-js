@@ -90,10 +90,11 @@ export class Results {
       }
 
     }*/
-
+    // console.log('Case : ' + this._typeResult);
     if (this._typeResult === ArrayTypeResults.ResultArray) {
-      // console.log('Case : ' + this._typeResult);
       this.findResultArray();
+    } else if(this._typeResult === ArrayTypeResults.ChangeArray){
+      this.findChangesArray();
     } else {
       console.log('ERROR: run-function-array-.component - submitForm - Did not find-array assign the Type Result in the Component Context in the Array Module.')
     }
@@ -140,6 +141,35 @@ export class Results {
  */
 
     this._showArrayResults = true;
+  }
+
+  findChangesArray(){
+
+    let buildAssign = this.createAssignStatement();
+
+    /*
+     Example:
+        Remove the let from the  let peoples = ["Cecilie", "Lone", "Emil", "Tobias", "Linus"]; so
+        becomes peoples = ["Cecilie", "Lone", "Emil", "Tobias", "Linus"];
+     */
+    buildAssign = buildAssign.replace("let","");
+
+    //Example: Variable used for the changed array.
+    let tempVariable;
+
+    //Example: Change the code to replace people to tempVariable
+    buildAssign = buildAssign.replace(this._context.begin.defaultNames[0],"tempVariable" );
+    let codeWithTempVariable = this._code.replace(this._context.begin.defaultNames[0],"tempVariable" );
+
+    eval( buildAssign + " " + codeWithTempVariable );
+
+    console.log("Changes Array: "+ tempVariable);
+
+    if(typeof tempVariable != 'undefined'){
+      this._resultArray = tempVariable;
+      this._showArrayResults = true;
+    }
+
   }
 
 
