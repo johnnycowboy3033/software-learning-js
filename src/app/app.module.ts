@@ -89,6 +89,7 @@ let appRoutes: Routes = [
   { path: 'String/Ends_With', component: StringBasicComponent },
   { path: 'String/Includes', component: StringBasicComponent },
   { path: 'String/Index_Of', component: StringBasicComponent },
+  { path: 'String/Last_Index_Of', component: StringBasicComponent },
   { path: 'String/Locale_Compare', component: StringBasicComponent },
   { path: 'String/Match', component: StringBasicComponent },
   { path: 'String/Replace', component: StringBasicComponent },

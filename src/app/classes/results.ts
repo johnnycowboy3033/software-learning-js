@@ -13,9 +13,15 @@ export class Results {
   private _code:string = "";
 
   private _resultArray:string[] = [];
+  private _resultString:string= '';
+  private _resultNumber:string= '';
+  private _resultBoolean:string= '';
 
   //Show parts of the webpage
   private _showArrayResults:boolean = false;
+  private _showStringResults:boolean = false;
+  private _showNumberResults:boolean = false;
+  private _showBooleanResults:boolean = false;
 
 
   /*
@@ -54,9 +60,27 @@ export class Results {
   get resultArray(): string[] {return this._resultArray;}
   set resultArray(value: string[]) {this._resultArray = value;}
 
-  //Show
+  get resultString(): string {return this._resultString;}
+  set resultString(value: string) {this._resultString = value;}
+
+  get resultNumber(): string {return this._resultNumber;}
+  set resultNumber(value: string) {this._resultNumber = value;}
+
+  get resultBoolean(): string {return this._resultBoolean;}
+  set resultBoolean(value: string) {this._resultBoolean = value;}
+
+//Show
   get showArrayResults(): boolean {return this._showArrayResults;}
   set showArrayResults(value: boolean) {this._showArrayResults = value;}
+
+  get showStringResults(): boolean {return this._showStringResults;}
+  set showStringResults(value: boolean) {this._showStringResults = value;}
+
+  get showNumberResults(): boolean {return this._showNumberResults;}
+  set showNumberResults(value: boolean) {this._showNumberResults = value;}
+
+  get showBooleanResults(): boolean {return this._showBooleanResults;}
+  set showBooleanResults(value: boolean) {this._showBooleanResults = value;}
 
   toString(){
     let returnTemp = "";
@@ -95,7 +119,13 @@ export class Results {
       this.findResultArray();
     } else if(this._typeResult === ArrayTypeResults.ChangeArray){
       this.findChangesArray();
-    } else {
+    }else if(this._typeResult === ArrayTypeResults.ResultString){
+      this.findResultString();
+    }else if(this._typeResult === ArrayTypeResults.ResultNumber){
+      this.findResultNumber();
+    }else if(this._typeResult === ArrayTypeResults.ResultBoolean){
+     this.findResultBoolean();
+    }else {
       console.log('ERROR: run-function-array-.component - submitForm - Did not find-array assign the Type Result in the Component Context in the Array Module.')
     }
   }
@@ -172,6 +202,43 @@ export class Results {
 
   }
 
+  findResultString(){
+
+    //Run the code
+    this._resultString = eval(this.createAssignStatement() + " " + this._code );
+
+    /*
+      console.log( "String Results = " + this._resultString );
+     */
+
+    this._showStringResults = true;
+
+  }
+
+  findResultNumber(){
+
+    //Run the code
+    this._resultNumber = eval(this.createAssignStatement() + " " + this._code );
+
+    /*
+      console.log( "Number Results = " + this._resultNumber );
+     */
+
+    this._showNumberResults = true;
+
+  }
+  findResultBoolean(){
+
+    //Run the code
+    this._resultBoolean = eval(this.createAssignStatement() + " " + this._code );
+
+    /*
+      console.log( "Number Results = " + this._resultBoolean  );
+     */
+
+    this._showBooleanResults = true;
+
+  }
 
 
 }

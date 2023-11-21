@@ -27,6 +27,37 @@
           </ng-template>
       </div>
 
+      <!-- String Results -->
+      <div *ngIf="displayResult.showStringResults; else elseBlockCall">
+          <h2 class="section-header" >String Result</h2><br><br>
+          <h1>{{displayResult.resultString}}</h1>
+      </div>
+      <div>
+          <ng-template #elseBlockCall>
+          </ng-template>
+      </div>
+
+      <!-- Number Results -->
+      <div *ngIf="displayResult.showNumberResults; else elseBlockCall">
+          <h2 class="section-header" >Number Result</h2><br><br>
+          <h1>{{displayResult.resultNumber}}</h1>
+      </div>
+      <div>
+          <ng-template #elseBlockCall>
+          </ng-template>
+      </div>
+
+
+      <!-- Boolean Results -->
+      <div *ngIf="displayResult.showBooleanResults; else elseBlockCall">
+          <h2 class="section-header" >String Result</h2><br><br>
+          <h1>{{displayResult.resultBoolean}}</h1>
+      </div>
+      <div>
+          <ng-template #elseBlockCall>
+          </ng-template>
+      </div>
+
 
 
 
