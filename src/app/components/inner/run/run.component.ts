@@ -109,6 +109,8 @@ export class RunComponent extends  MainModule implements OnInit {
       }
     }
 
+    // @ts-ignore
+    this.results.code = this.code;
     this._sendResult.emit( this.results );
 
     if(this.showSuccess){
@@ -121,9 +123,6 @@ export class RunComponent extends  MainModule implements OnInit {
 
     this.context.get(this.title).usesCode = this.code;
     this.service.sendContext(this.context);
-
-    // @ts-ignore
-    this.results.code = this.code;
 
 
   }

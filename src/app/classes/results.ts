@@ -238,10 +238,19 @@ export class Results {
   findResultBoolean(){
 
     //Run the code
-    this._resultBoolean = eval(this.createAssignStatement() + " " + this._code );
+    let tempResultBoolean = eval(this.createAssignStatement() + " " + this._code );
+
+    if(typeof tempResultBoolean == "boolean"){
+        if(tempResultBoolean){
+          this._resultBoolean = 'true';
+        }else{
+          this._resultBoolean = 'false';
+        }
+    }
+
 
     /*
-      console.log( "Number Results = " + this._resultBoolean  );
+      console.log( "Boolean Results = " + this._resultBoolean  );
      */
 
     this._showBooleanResults = true;
