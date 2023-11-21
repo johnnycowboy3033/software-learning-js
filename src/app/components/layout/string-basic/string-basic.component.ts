@@ -37,14 +37,12 @@ export class StringBasicComponent extends MainModule implements  OnInit {
   };
 
   setResults($event:Results){
-
     this.results = $event;
 
-    this.results.showPage = true;
-
-    /*    console.log("Should view Show Component ? " +   this.results.showPage);
-        console.log("Type Result: " +   this.results.typeResult);*/
-
+ /*
+    console.log("Should view Show Component ? " +   this.results.showPage);
+    console.log("Type Result: " +   this.results.typeResult);
+ */
 
   }
 

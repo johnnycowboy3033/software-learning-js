@@ -261,7 +261,7 @@ export class StringService extends MainService{
           CodeDescription:"The search() method executes a search for a match between a regular expression and this String object. Return the index position of the search string.",
           Code:{
             Call:StringVariables.Object + '.search("World");',
-            TypeResults: StringTypeResults.ResultString,
+            TypeResults: StringTypeResults.ResultNumber,
           },
           Begin: {
             DefaultNames:[StringNames.HelloWorld]

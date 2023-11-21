@@ -115,6 +115,14 @@ export class Results {
 
     }*/
     // console.log('Case : ' + this._typeResult);
+
+    this.showPage = true;
+
+    this._showArrayResults = false;
+    this._showStringResults = false;
+    this._showNumberResults = false;
+    this._showBooleanResults = false;
+
     if (this._typeResult === ArrayTypeResults.ResultArray) {
       this.findResultArray();
     } else if(this._typeResult === ArrayTypeResults.ChangeArray){

@@ -76,21 +76,24 @@ export class RunComponent extends  MainModule implements OnInit {
 /*
     console.log( 'Code Editor = '  + this.code);
 */
-    this.showSuccess = true;
+
+    //Show Component
+    this.results.showPage = false;
+
+    //The message below the Submit Button.
+    this.showSuccess = true; //(Change Message Color) If this is true the message will be green, or if false be red.
     this.displayMessage = "";
 
     //The user has not select Type Result Radio Button
     if(this.results.typeResult == ""){
       this.displayMessage = this.displayMessage + ' Please select type result radio button. ';
       this.showSuccess = false;
-      this.results.showPage = false;
     }
 
     //The user not put text in the Code Area Text
     if(this.code == "" || this.code == null ){
       this.displayMessage  = this.displayMessage  + 'Editor has no text.';
       this.showSuccess = false;
-      this.results.showPage = false;
     }
 
     //The user must select the correct Type Results Radio Button
@@ -103,7 +106,6 @@ export class RunComponent extends  MainModule implements OnInit {
         this.displayMessage  = this.displayMessage  + 'You select the wrong Type Result. Correct Type Result is ' +
             serviceTypeResult.toUpperCase() + " not " + radioButtonTypeResult.toUpperCase() + '. ';
         this.showSuccess = false;
-        this.results.showPage = false;
       }
     }
 
@@ -111,7 +113,11 @@ export class RunComponent extends  MainModule implements OnInit {
 
     if(this.showSuccess){
       this.displayMessage  = this.displayMessage + "Great Successful!";
+      this.results.run(this.context.get(this.title));
+
     }
+
+    this.showMessage = true;
 
     this.context.get(this.title).usesCode = this.code;
     this.service.sendContext(this.context);
@@ -119,9 +125,6 @@ export class RunComponent extends  MainModule implements OnInit {
     // @ts-ignore
     this.results.code = this.code;
 
-    this.results.run(this.context.get(this.title));
-
-    this.showMessage = true;
 
   }
 
