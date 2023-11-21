@@ -118,7 +118,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: "There are two ways to create a RegExp object: a literal notation and a constructor.",
           Code:{
-            Call:'new RegExp("cat", "gi");',
+            Call:'new RegExp("cat", "gi")',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           TablesCode:'new RegExp(pattern, modifier)',
