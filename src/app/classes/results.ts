@@ -19,6 +19,7 @@ export class Results {
   private _resultNumber:string= '';
   private _resultBoolean:string= '';
   private _replaceMethod:string= '';
+  private _regExprReturnBoolean:string = '';
 
   //Show parts of the webpage
   private _showArrayResults:boolean = false;
@@ -26,6 +27,7 @@ export class Results {
   private _showNumberResults:boolean = false;
   private _showBooleanResults:boolean = false;
   private _showReplaceMethod:boolean = false;
+  private _showRegExprReturnBoolean:boolean = false;
 
 
   /*
@@ -76,6 +78,9 @@ export class Results {
   get replaceMethod(): string {return this._replaceMethod;}
   set replaceMethod(value: string) {this._replaceMethod = value;}
 
+  get regExprReturnBoolean(): string {return this._regExprReturnBoolean;}
+  set regExprReturnBoolean(value: string) {this._regExprReturnBoolean = value;}
+
 //Show
   get showArrayResults(): boolean {return this._showArrayResults;}
   set showArrayResults(value: boolean) {this._showArrayResults = value;}
@@ -92,7 +97,8 @@ export class Results {
   get showReplaceMethod(): boolean {return this._showReplaceMethod;}
   set showReplaceMethod(value: boolean) {this._showReplaceMethod = value;}
 
-
+  get showRegExprReturnBoolean(): boolean {return this._showRegExprReturnBoolean;}
+  set showRegExprReturnBoolean(value: boolean) {this._showRegExprReturnBoolean = value;}
 
   toString(){
     let returnTemp = "";
@@ -135,6 +141,7 @@ export class Results {
     this._showNumberResults = false;
     this._showBooleanResults = false;
     this._showReplaceMethod  = false;
+    this._showRegExprReturnBoolean = false;
 
     if (this._typeResult === ArrayTypeResults.ResultArray
           || this._typeResult === StringTypeResults.ResultArray) {
@@ -166,7 +173,7 @@ export class Results {
 
     }else if(this._typeResult === RegExprTypeResults.ReturnBoolean){
 
-      this.regExprReturnBoolean();
+      this.findRegExprReturnBoolean();
 
     }else {
       console.log('ERROR: run-function-array-.component - submitForm - Did not find-array assign the Type Result in the Component Context in the Array Module.')
@@ -325,8 +332,26 @@ export class Results {
   };
 
 
-  regExprReturnBoolean(){
-    console.log("regExprReturnBoolean - ");
+  findRegExprReturnBoolean(){
+
+    //Remove the second inner quotation marks. For Example ' "Hello World" '
+    let tempFixed = this._context.variableValues[0]
+    let tempString = tempFixed.substring( 2,tempFixed.length - 2);
+
+    console.log("regExprReturnBoolean - tempFixed: " + tempFixed);
+
+    let  pattern = this._code.substring( 1,this._code.lastIndexOf("/"));
+    let modified = this._code.substring( this._code.lastIndexOf("/") + 1);
+
+    let regExpr = new RegExp(pattern,modified);
+
+    if( regExpr.test(tempString) ){
+      this._regExprReturnBoolean = 'true';
+    }else{
+      this._regExprReturnBoolean = 'false';
+    }
+
+    this._showRegExprReturnBoolean = true;
 
   };
 

@@ -68,6 +68,16 @@
           </ng-template>
       </div>
 
+      <!-- Reg Expr Return Boolean -->
+      <div *ngIf="displayResult.showRegExprReturnBoolean else elseBlockCall">
+          <h2 class="section-header" >Reg Expr Return Boolean</h2><br><br>
+          <h1>{{displayResult.regExprReturnBoolean}}</h1>
+      </div>
+      <div>
+          <ng-template #elseBlockCall>
+          </ng-template>
+      </div>
+
 
 
 
