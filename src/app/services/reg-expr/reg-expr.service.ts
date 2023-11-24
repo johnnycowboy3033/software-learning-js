@@ -8,6 +8,7 @@ import {RegExprComponentNames} from "../../enumerates/reg-expr/reg-expr-componen
 import {RegExprNames} from "../../enumerates/reg-expr/reg-expr-names";
 import {RegExprTypeResults} from "../../enumerates/reg-expr/reg-expr-type-results";
 import {StringVariables} from "../../enumerates/string/string-variables";
+import {RegExprVariables} from "../../enumerates/reg-expr/reg-expr-variables";
 
 
 @Injectable({
@@ -149,7 +150,8 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: "The test() method executes a search for a match between a regular expression and a specified string. Return boolean.",
           Code:{
-            Call:'/foo*/g',
+            Assignment:'var regex = RegExp("foo*", "g");',
+            Call:'regex.test('+ RegExprVariables.Object + ');',
             TypeResults: RegExprTypeResults.ReturnBoolean,
           },
           Begin:{ DefaultNames:[RegExprNames.Football]},

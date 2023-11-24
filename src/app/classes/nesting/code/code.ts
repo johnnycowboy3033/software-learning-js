@@ -1,5 +1,6 @@
 export class Code {
 
+  private _assignment:string | undefined = '';
   private _call:string | undefined = '';
   private _type:string | undefined = '';
   private _method:string | undefined = '';
@@ -7,12 +8,15 @@ export class Code {
   private _logic:string | undefined = '';
   private _typeResults:string | undefined = '';
 
-  constructor(call: string | undefined,
+  constructor(assignment: string | undefined,
+              call: string | undefined,
               type: string | undefined,
               method: string | undefined,
               methodParentheses: boolean | undefined,
               logic: string | undefined,
               typeResults: string | undefined) {
+
+    this._assignment = assignment;
     this._call = call;
     this._type = type;
     this._method = method;
@@ -21,6 +25,8 @@ export class Code {
     this._typeResults = typeResults;
   }
 
+  get assignment(): string | undefined {return this._assignment;}
+  set assignment(value: string | undefined) {this._assignment = value;}
 
   get call(): string | undefined {return this._call;}
   set call(value: string | undefined) {this._call = value;}

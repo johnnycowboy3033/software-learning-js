@@ -327,16 +327,9 @@ export class Results {
 
     console.log("regExprReturnBoolean - tempFixed: " + tempFixed);
 
-    let  pattern = this._code.substring( 1,this._code.lastIndexOf("/"));
-    let modified = this._code.substring( this._code.lastIndexOf("/") + 1);
+    let result = eval( this.createAssignStatement() + " " +this._code );
 
-    let regExpr = new RegExp(pattern,modified);
-
-    if( regExpr.test(tempString) ){
-      this._resultString = 'true';
-    }else{
-      this._resultString = 'false';
-    }
+    this._resultString = result;
 
     this._titleStringResult = "Reg Expr Return Boolean";
     this._showStringResults = true;

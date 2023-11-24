@@ -28,6 +28,7 @@ export class ContextArray extends Context {
     },
     CodeDescription?:string,
     Code?:{
+      Assignment?:string,
       Call?:string,
       Type?:string,
       Method?:string,
