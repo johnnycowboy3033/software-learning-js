@@ -8,7 +8,7 @@
 
       <!-- Array Results -->
       <div *ngIf="displayResult.showArrayResults; else elseBlockCall">
-          <h2 class="section-header" >Array Result</h2><br><br>
+          <h2 class="section-header" >{{ displayResult.titleArrayResult }}</h2><br><br>
           <table>
               <tr>
                   <td *ngFor="let element of displayResult.resultArray; index as j">
@@ -29,49 +29,8 @@
 
       <!-- String Results -->
       <div *ngIf="displayResult.showStringResults; else elseBlockCall">
-          <h2 class="section-header" >String Result</h2><br><br>
+          <h2 class="section-header" >{{displayResult.titleStringResult}}</h2><br><br>
           <h1>{{displayResult.resultString}}</h1>
-      </div>
-      <div>
-          <ng-template #elseBlockCall>
-          </ng-template>
-      </div>
-
-      <!-- Number Results -->
-      <div *ngIf="displayResult.showNumberResults; else elseBlockCall">
-          <h2 class="section-header" >Number Result</h2><br><br>
-          <h1>{{displayResult.resultNumber}}</h1>
-      </div>
-      <div>
-          <ng-template #elseBlockCall>
-          </ng-template>
-      </div>
-
-
-      <!-- Boolean Results -->
-      <div *ngIf="displayResult.showBooleanResults; else elseBlockCall">
-          <h2 class="section-header" >Boolean Result</h2><br><br>
-          <h1>{{displayResult.resultBoolean}}</h1>
-      </div>
-      <div>
-          <ng-template #elseBlockCall>
-          </ng-template>
-      </div>
-
-      <!-- Replace Results -->
-      <div *ngIf="displayResult.showReplaceMethod; else elseBlockCall">
-          <h2 class="section-header" >Replace Result</h2><br><br>
-          <h1>{{displayResult.replaceMethod}}</h1>
-      </div>
-      <div>
-          <ng-template #elseBlockCall>
-          </ng-template>
-      </div>
-
-      <!-- Reg Expr Return Boolean -->
-      <div *ngIf="displayResult.showRegExprReturnBoolean else elseBlockCall">
-          <h2 class="section-header" >Reg Expr Return Boolean</h2><br><br>
-          <h1>{{displayResult.regExprReturnBoolean}}</h1>
       </div>
       <div>
           <ng-template #elseBlockCall>

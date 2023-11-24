@@ -14,20 +14,15 @@ export class Results {
   private _assignStatement:string[] = [];
   private _code:string = "";
 
-  private _resultArray:string[] = [];
-  private _resultString:string= '';
-  private _resultNumber:string= '';
-  private _resultBoolean:string= '';
-  private _replaceMethod:string= '';
-  private _regExprReturnBoolean:string = '';
-
   //Show parts of the webpage
+  private _titleStringResult = '';
+  private _titleArrayResult = '';
+
+  private _resultArray:string[] = [];
+  private _resultString:string = '';
+
   private _showArrayResults:boolean = false;
   private _showStringResults:boolean = false;
-  private _showNumberResults:boolean = false;
-  private _showBooleanResults:boolean = false;
-  private _showReplaceMethod:boolean = false;
-  private _showRegExprReturnBoolean:boolean = false;
 
 
   /*
@@ -63,42 +58,24 @@ export class Results {
   get code(): string {return this._code;}
   set code(value: string) {this._code = value;}
 
+  //Show
   get resultArray(): string[] {return this._resultArray;}
   set resultArray(value: string[]) {this._resultArray = value;}
 
   get resultString(): string {return this._resultString;}
   set resultString(value: string) {this._resultString = value;}
 
-  get resultNumber(): string {return this._resultNumber;}
-  set resultNumber(value: string) {this._resultNumber = value;}
+  get titleStringResult(): string {return this._titleStringResult;}
+  set titleStringResult(value: string) {this._titleStringResult = value;}
 
-  get resultBoolean(): string {return this._resultBoolean;}
-  set resultBoolean(value: string) {this._resultBoolean = value;}
+  get titleArrayResult(): string {return this._titleArrayResult;}
+  set titleArrayResult(value: string) {this._titleArrayResult = value;}
 
-  get replaceMethod(): string {return this._replaceMethod;}
-  set replaceMethod(value: string) {this._replaceMethod = value;}
-
-  get regExprReturnBoolean(): string {return this._regExprReturnBoolean;}
-  set regExprReturnBoolean(value: string) {this._regExprReturnBoolean = value;}
-
-//Show
   get showArrayResults(): boolean {return this._showArrayResults;}
   set showArrayResults(value: boolean) {this._showArrayResults = value;}
 
   get showStringResults(): boolean {return this._showStringResults;}
   set showStringResults(value: boolean) {this._showStringResults = value;}
-
-  get showNumberResults(): boolean {return this._showNumberResults;}
-  set showNumberResults(value: boolean) {this._showNumberResults = value;}
-
-  get showBooleanResults(): boolean {return this._showBooleanResults;}
-  set showBooleanResults(value: boolean) {this._showBooleanResults = value;}
-
-  get showReplaceMethod(): boolean {return this._showReplaceMethod;}
-  set showReplaceMethod(value: boolean) {this._showReplaceMethod = value;}
-
-  get showRegExprReturnBoolean(): boolean {return this._showRegExprReturnBoolean;}
-  set showRegExprReturnBoolean(value: boolean) {this._showRegExprReturnBoolean = value;}
 
   toString(){
     let returnTemp = "";
@@ -138,10 +115,9 @@ export class Results {
 
     this._showArrayResults = false;
     this._showStringResults = false;
-    this._showNumberResults = false;
-    this._showBooleanResults = false;
-    this._showReplaceMethod  = false;
-    this._showRegExprReturnBoolean = false;
+
+    this._titleStringResult = "";
+
 
     if (this._typeResult === ArrayTypeResults.ResultArray
           || this._typeResult === StringTypeResults.ResultArray) {
@@ -174,6 +150,10 @@ export class Results {
     }else if(this._typeResult === RegExprTypeResults.ReturnBoolean){
 
       this.findRegExprReturnBoolean();
+
+    }else if(this._typeResult === ArrayTypeResults.EmptyArray) {
+
+      this.findEmptyArray()
 
     }else {
       console.log('ERROR: run-function-array-.component - submitForm - Did not find-array assign the Type Result in the Component Context in the Array Module.')
@@ -220,6 +200,7 @@ export class Results {
     }
  */
 
+    this._titleArrayResult = "Result Array";
     this._showArrayResults = true;
   };
 
@@ -250,6 +231,8 @@ export class Results {
       this._showArrayResults = true;
     }
 
+    this._titleArrayResult = "Changes Array";
+
   };
 
   findResultString(){
@@ -261,6 +244,7 @@ export class Results {
       console.log( "String Results = " + this._resultString );
      */
 
+    this._titleStringResult = "Result String";
     this._showStringResults = true;
 
   };
@@ -268,13 +252,14 @@ export class Results {
   findResultNumber(){
 
     //Run the code
-    this._resultNumber = eval(this.createAssignStatement() + " " + this._code );
+    this.resultString = eval(this.createAssignStatement() + " " + this._code );
 
     /*
       console.log( "Number Results = " + this._resultNumber );
      */
 
-    this._showNumberResults = true;
+    this._titleStringResult = "Result Number";
+    this._showStringResults = true;
 
   };
 
@@ -285,9 +270,9 @@ export class Results {
 
     if(typeof tempResultBoolean == "boolean"){
         if(tempResultBoolean){
-          this._resultBoolean = 'true';
+          this._resultString = 'true';
         }else{
-          this._resultBoolean = 'false';
+          this._resultString = 'false';
         }
     }
 
@@ -296,7 +281,8 @@ export class Results {
       console.log( "Boolean Results = " + this._resultBoolean  );
      */
 
-    this._showBooleanResults = true;
+    this._titleStringResult = "Result Boolean";
+    this._showStringResults = true;
 
   };
 
@@ -320,13 +306,14 @@ export class Results {
       regExpr = new RegExp(pattern,modified)
     }
 
-    this._replaceMethod = tempString.replace(regExpr, "X");
+    this._resultString = tempString.replace(regExpr, "X");
 
     /*
     console.log( "Replace Results = " + this._replaceMethod  );
     */
 
-    this._showReplaceMethod = true;
+    this._titleStringResult = "Replace Method";
+    this._showStringResults  = true;
 
 
   };
@@ -346,12 +333,25 @@ export class Results {
     let regExpr = new RegExp(pattern,modified);
 
     if( regExpr.test(tempString) ){
-      this._regExprReturnBoolean = 'true';
+      this._resultString = 'true';
     }else{
-      this._regExprReturnBoolean = 'false';
+      this._resultString = 'false';
     }
 
-    this._showRegExprReturnBoolean = true;
+    this._titleStringResult = "Reg Expr Return Boolean";
+    this._showStringResults = true;
+
+  };
+
+  findEmptyArray(){
+
+    let empty:string [] = [];
+
+    eval( this.createAssignStatement() + " " +this._code );
+
+    this._titleArrayResult = "Empty Array";
+    this._resultArray = empty;
+    this._showArrayResults = true;
 
   };
 
