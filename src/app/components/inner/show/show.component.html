@@ -58,6 +58,16 @@
           </ng-template>
       </div>
 
+      <!-- Replace Results -->
+      <div *ngIf="displayResult.showReplaceMethod; else elseBlockCall">
+          <h2 class="section-header" >Replace Result</h2><br><br>
+          <h1>{{displayResult.replaceMethod}}</h1>
+      </div>
+      <div>
+          <ng-template #elseBlockCall>
+          </ng-template>
+      </div>
+
 
 
 

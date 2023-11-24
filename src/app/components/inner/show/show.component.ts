@@ -11,7 +11,7 @@ export class ShowComponent {
   @Input() displayResult:Results =new Results({ShowPage:false});
 
   constructor() {
-    console.log( "Display Results: " + this.displayResult.toString() );
+    // console.log( "Display Results: " + this.displayResult.toString() );
   }
 
 }

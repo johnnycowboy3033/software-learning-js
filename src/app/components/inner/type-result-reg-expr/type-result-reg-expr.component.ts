@@ -36,7 +36,7 @@ export class TypeResultRegExprComponent implements OnInit {
 
   changeTypeResult(e:any) {
     this._typeResult = this.resultTypeMap.get(e.target.value)
-    console.log("THE " + this._typeResult + " RADIO BUTTON WAS CHANGED");
+    // console.log("THE " + this._typeResult + " RADIO BUTTON WAS CHANGED");
 
     this._sendTypeResult.emit( this._typeResult );
   }
