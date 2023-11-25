@@ -37,7 +37,24 @@
           </ng-template>
       </div>
 
-
+      <!-- Exec Method -->
+      <div *ngIf="displayResult.showExecMethod; else elseBlockCall">
+          <h2 class="section-header" >{{ displayResult.titleArrayResult }}</h2><br><br>
+          <table>
+              <tr *ngFor="let element of displayResult.resultArray; index as j">
+                  <td >
+                      <span class="table-index">{{j}}</span>
+                  </td>
+                  <td >
+                      {{toStringExecMethod(element)}}
+                  </td>
+              </tr>
+          </table>
+      </div>
+      <div>
+          <ng-template #elseBlockCall>
+          </ng-template>
+      </div>
 
 
   </div>

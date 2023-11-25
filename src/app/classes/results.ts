@@ -23,6 +23,7 @@ export class Results {
 
   private _showArrayResults:boolean = false;
   private _showStringResults:boolean = false;
+  private _showExecMethod:boolean = false;
 
 
   /*
@@ -71,6 +72,9 @@ export class Results {
   get titleArrayResult(): string {return this._titleArrayResult;}
   set titleArrayResult(value: string) {this._titleArrayResult = value;}
 
+  get showExecMethod(): boolean {return this._showExecMethod;}
+  set showExecMethod(value: boolean) {this._showExecMethod = value;}
+
   get showArrayResults(): boolean {return this._showArrayResults;}
   set showArrayResults(value: boolean) {this._showArrayResults = value;}
 
@@ -115,6 +119,7 @@ export class Results {
 
     this._showArrayResults = false;
     this._showStringResults = false;
+    this._showExecMethod = false;
 
     this._titleStringResult = "";
 
@@ -154,6 +159,10 @@ export class Results {
     }else if(this._typeResult === ArrayTypeResults.EmptyArray) {
 
       this.findEmptyArray()
+
+    }else if(this._typeResult === RegExprTypeResults.ExecMethod) {
+
+      this.findExecMethod();
 
     }else {
       console.log('ERROR: run-function-array-.component - submitForm - Did not find-array assign the Type Result in the Component Context in the Array Module.')
@@ -345,6 +354,19 @@ export class Results {
     this._titleArrayResult = "Empty Array";
     this._resultArray = empty;
     this._showArrayResults = true;
+
+  };
+
+  findExecMethod(){
+
+    let empty:string [] = [];
+    let execMethod:string [] = [];
+
+    eval( this.createAssignStatement() + " " +this._code );
+
+    this._titleArrayResult = "Exec Method";
+    this._resultArray = empty;
+    this._showExecMethod = true;
 
   };
 

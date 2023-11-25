@@ -9,6 +9,8 @@ import {RegExprNames} from "../../enumerates/reg-expr/reg-expr-names";
 import {RegExprTypeResults} from "../../enumerates/reg-expr/reg-expr-type-results";
 import {StringVariables} from "../../enumerates/string/string-variables";
 import {RegExprVariables} from "../../enumerates/reg-expr/reg-expr-variables";
+import {ArrayVariables} from "../../enumerates/array/array-variables";
+import {MethodTypesTypes} from "../../enumerates/array/array-method-types";
 
 
 @Injectable({
@@ -138,7 +140,11 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: "The exec() method executes a search for a match in a specified string. Returns a result array (match_value,index,inpute_string,group_name), or null.",
           Code:{
-            Call:'/foo*/g',
+              Assignment:'var regex = RegExp("foo*", "g");',
+              Type:MethodTypesTypes.EMPTY,
+              Method:'while ((execMethod = regex.exec('+RegExprVariables.Object+')) !== null)',
+              MethodParentheses:false,
+              Logic:'empty.push( execMethod );' ,
             TypeResults: RegExprTypeResults.ExecMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.Football]},

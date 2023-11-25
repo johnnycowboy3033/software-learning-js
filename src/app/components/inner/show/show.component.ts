@@ -14,4 +14,13 @@ export class ShowComponent {
     // console.log( "Display Results: " + this.displayResult.toString() );
   }
 
+  toStringExecMethod(convert:any){
+    return "[ "
+        + convert.join()
+        +", index: "  + convert["index"]
+        + ", input: '"  + convert["input"] + "'"
+        + ", groups: "+ convert["groups"]
+        + "]" ;
+  }
+
 }
