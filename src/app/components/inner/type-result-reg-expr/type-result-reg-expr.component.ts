@@ -21,7 +21,7 @@ export class TypeResultRegExprComponent implements OnInit {
     this.resultTypeMap.set('RB', RegExprTypeResults.ReturnBoolean);
     this.resultTypeMap.set('RA', RegExprTypeResults.ResultArray);
     this.resultTypeMap.set('MA', RegExprTypeResults.MatchAllMethod);
-    this.resultTypeMap.set('SM', RegExprTypeResults.SearchMethod);
+    this.resultTypeMap.set('RN', RegExprTypeResults.ResultNumber);
 
   }
 

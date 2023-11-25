@@ -139,7 +139,9 @@ export class Results {
       this.findResultString();
 
     }else if(this._typeResult === ArrayTypeResults.ResultNumber
-              || this._typeResult === StringTypeResults.ResultNumber){
+              || this._typeResult === StringTypeResults.ResultNumber
+                    || this._typeResult === RegExprTypeResults.ResultNumber
+    ){
 
       this.findResultNumber();
 
@@ -164,7 +166,11 @@ export class Results {
 
       this.findExecMethod();
 
-    }else {
+    }else if(this._typeResult === RegExprTypeResults.MatchAllMethod){
+
+      this.findMatchAllMethod();
+
+    } else {
       console.log('ERROR: run-function-array-.component - submitForm - Did not find-array assign the Type Result in the Component Context in the Array Module.')
     }
   }
@@ -367,6 +373,10 @@ export class Results {
     this._titleArrayResult = "Exec Method";
     this._resultArray = empty;
     this._showExecMethod = true;
+
+  };
+
+  findMatchAllMethod(){
 
   };
 

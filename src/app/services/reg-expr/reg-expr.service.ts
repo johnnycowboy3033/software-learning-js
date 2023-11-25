@@ -181,7 +181,8 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: "The matchAll() method returns an iterator of all results matching a string against a regular expression, including capturing groups.",
           Code:{
-            Call:'/t(e)(st(\\d?))/g',
+
+            Call:'[...' + RegExprVariables.Object + '.matchAll(/t(e)(st(\\d?))/g)];',
             TypeResults: RegExprTypeResults.MatchAllMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.TestTwo]},
@@ -217,8 +218,8 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: "The search() method executes a search for a match between a regular expression and this String object. Return index first occurrence.",
           Code:{
-            Call:'/dog/',
-            TypeResults: RegExprTypeResults.SearchMethod,
+            Call:RegExprVariables.Object +'.search("dog");',
+            TypeResults: RegExprTypeResults.ResultNumber,
           },
           Begin:{ DefaultNames:[RegExprNames.Fox]},
         }

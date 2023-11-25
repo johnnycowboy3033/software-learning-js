@@ -4,5 +4,5 @@ export enum RegExprTypeResults{
   ReturnBoolean = "Reg Expr Return Boolean",//Test (RegExpr Method)
   ResultArray = 'Result Array',//Match (String Method)
   MatchAllMethod = 'Match All Method', //Match All (String Method)
-  SearchMethod = 'Search Method',//Search (String Method)
+  ResultNumber = 'Result Number',//Search (String Method)
 }
