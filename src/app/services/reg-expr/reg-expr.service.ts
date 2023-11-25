@@ -169,8 +169,8 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: "The match() method retrieves the result of matching a string of the match in an array.",
           Code:{
-            Call:'/[A-Z]/g',
-            TypeResults: RegExprTypeResults.MatchMethod,
+            Call:RegExprVariables.Object + '.match(/[A-Z]/g);',
+            TypeResults: RegExprTypeResults.ResultArray,
           },
           Begin:{ DefaultNames:[RegExprNames.Fox]},
         }
