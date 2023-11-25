@@ -378,6 +378,27 @@ export class Results {
 
   findMatchAllMethod(){
 
+   let result =  eval( this.createAssignStatement() + " " +this._code );
+
+/*
+   for( const[index,convert] of result.entries()){
+
+     let print_array = "[ "
+     + convert.join()
+     +", index: "  + convert["index"]
+     + ", input: '"  + convert["input"] + "'"
+     + ", groups: "+ convert["groups"]
+     + "]" ;
+
+     console.log("Results : " + print_array);
+   }
+*/
+
+    this._titleArrayResult = "Match All Method";
+    this._resultArray = result;
+    this._showExecMethod = true;
+
+
   };
 
 
