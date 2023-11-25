@@ -65,6 +65,7 @@ export class Context {
     },
     CodeDescription?:string,
     Code?:{
+      Assignment?:string,
       Call?:string,
       Type?:string,
       Method?:string,
@@ -99,7 +100,9 @@ export class Context {
 
     this._codeDescription = ( HelperService.checkNotUndef(data.CodeDescription) )? data.CodeDescription : "";
 
+
     this._code = new Code(
+        ( HelperService.checkNotUndefined(data.Code,data.Code?.Assignment)  )? data.Code?.Assignment : "",
       ( HelperService.checkNotUndefined(data.Code,data.Code?.Call) )? data.Code?.Call : "" ,
       ( HelperService.checkNotUndefined(data.Code,data.Code?.Type) )? data.Code?.Type : "" ,
       ( HelperService.checkNotUndefined(data.Code,data.Code?.Method) )? data.Code?.Method : "" ,
@@ -133,7 +136,6 @@ export class Context {
 
   get code(): Code | undefined {return this._code;}
   set code(value: Code | undefined) {this._code = value;}
-
 
   get tablesCode(): string | undefined {return this._tablesCode;}
   set tablesCode(value: string | undefined) {this._tablesCode = value;}

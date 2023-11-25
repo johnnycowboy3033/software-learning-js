@@ -19,9 +19,9 @@ export class TypeResultRegExprComponent implements OnInit {
     this.resultTypeMap.set('EM', RegExprTypeResults.ExecMethod);
     this.resultTypeMap.set('RM', RegExprTypeResults.ReplaceMethod);
     this.resultTypeMap.set('RB', RegExprTypeResults.ReturnBoolean);
-    this.resultTypeMap.set('MM', RegExprTypeResults.MatchMethod);
+    this.resultTypeMap.set('RA', RegExprTypeResults.ResultArray);
     this.resultTypeMap.set('MA', RegExprTypeResults.MatchAllMethod);
-    this.resultTypeMap.set('SM', RegExprTypeResults.SearchMethod);
+    this.resultTypeMap.set('RN', RegExprTypeResults.ResultNumber);
 
   }
 
@@ -36,7 +36,7 @@ export class TypeResultRegExprComponent implements OnInit {
 
   changeTypeResult(e:any) {
     this._typeResult = this.resultTypeMap.get(e.target.value)
-    console.log("THE " + this._typeResult + " RADIO BUTTON WAS CHANGED");
+    // console.log("THE " + this._typeResult + " RADIO BUTTON WAS CHANGED");
 
     this._sendTypeResult.emit( this._typeResult );
   }

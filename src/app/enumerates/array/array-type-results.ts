@@ -1,5 +1,5 @@
 export enum ArrayTypeResults {
-  ResultArray = 'Result Array',
+    ResultArray = 'Result Array',
 	ResultBoolean = 'Result Boolean',
 	ResultNumber = 'Result Number',
 	ResultString = 'Result String',

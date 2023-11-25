@@ -35,7 +35,7 @@ export class InitializeComponent extends  MainModule{
         this.assign = this.contextMap.begin.defaultNames;
 
         this.assign.forEach((value, index, array) => {
-          console.log(this.service.arraysMap.get(value));
+          // console.log(this.service.arraysMap.get(value));
 
           let assignTemp = [];
           assignTemp[0]=value;

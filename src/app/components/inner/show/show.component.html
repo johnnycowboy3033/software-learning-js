@@ -1,16 +1,14 @@
 <div *ngIf="displayResult.showPage; else elseBlockFunc">
   <div class="work-area">
 
-<!--
 
    <p>Show Page: {{ displayResult.showPage}} </p>
    <p>Type Results: {{ displayResult.typeResult}} </p>
 
--->
 
       <!-- Array Results -->
       <div *ngIf="displayResult.showArrayResults; else elseBlockCall">
-          <h2 class="section-header" >Array Results</h2><br><br>
+          <h2 class="section-header" >{{ displayResult.titleArrayResult }}</h2><br><br>
           <table>
               <tr>
                   <td *ngFor="let element of displayResult.resultArray; index as j">
@@ -29,7 +27,34 @@
           </ng-template>
       </div>
 
+      <!-- String Results -->
+      <div *ngIf="displayResult.showStringResults; else elseBlockCall">
+          <h2 class="section-header" >{{displayResult.titleStringResult}}</h2><br><br>
+          <h1>{{displayResult.resultString}}</h1>
+      </div>
+      <div>
+          <ng-template #elseBlockCall>
+          </ng-template>
+      </div>
 
+      <!-- Exec Method -->
+      <div *ngIf="displayResult.showExecMethod; else elseBlockCall">
+          <h2 class="section-header" >{{ displayResult.titleArrayResult }}</h2><br><br>
+          <table>
+              <tr *ngFor="let element of displayResult.resultArray; index as j">
+                  <td >
+                      <span class="table-index">{{j}}</span>
+                  </td>
+                  <td >
+                      {{toStringExecMethod(element)}}
+                  </td>
+              </tr>
+          </table>
+      </div>
+      <div>
+          <ng-template #elseBlockCall>
+          </ng-template>
+      </div>
 
 
   </div>

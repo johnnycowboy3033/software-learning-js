@@ -7,6 +7,10 @@ import {ContextComponentType} from "../../enumerates/context/context-component-t
 import {RegExprComponentNames} from "../../enumerates/reg-expr/reg-expr-component-names";
 import {RegExprNames} from "../../enumerates/reg-expr/reg-expr-names";
 import {RegExprTypeResults} from "../../enumerates/reg-expr/reg-expr-type-results";
+import {StringVariables} from "../../enumerates/string/string-variables";
+import {RegExprVariables} from "../../enumerates/reg-expr/reg-expr-variables";
+import {ArrayVariables} from "../../enumerates/array/array-variables";
+import {MethodTypesTypes} from "../../enumerates/array/array-method-types";
 
 
 @Injectable({
@@ -97,7 +101,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: "There are two ways to create a RegExp object: a literal notation and a constructor.",
           Code:{
-            Call:'var regex = /cat/g;',
+            Call:'/cat/g;',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           TablesCode:'/pattern/modifiers;',
@@ -117,7 +121,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: "There are two ways to create a RegExp object: a literal notation and a constructor.",
           Code:{
-            Call:'var regex = new RegExp("cat", "gi");',
+            Call:'new RegExp("cat", "gi")',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           TablesCode:'new RegExp(pattern, modifier)',
@@ -136,7 +140,11 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: "The exec() method executes a search for a match in a specified string. Returns a result array (match_value,index,inpute_string,group_name), or null.",
           Code:{
-            Call:'var regex = RegExp("foo*", "g");',
+              Assignment:'var regex = RegExp("foo*", "g");',
+              Type:MethodTypesTypes.EMPTY,
+              Method:'while ((execMethod = regex.exec('+RegExprVariables.Object+')) !== null)',
+              MethodParentheses:false,
+              Logic:'empty.push( execMethod );' ,
             TypeResults: RegExprTypeResults.ExecMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.Football]},
@@ -148,7 +156,8 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: "The test() method executes a search for a match between a regular expression and a specified string. Return boolean.",
           Code:{
-            Call:'var regex = new RegExp("foo*", "g");',
+            Assignment:'var regex = RegExp("foo*", "g");',
+            Call:'regex.test('+ RegExprVariables.Object + ');',
             TypeResults: RegExprTypeResults.ReturnBoolean,
           },
           Begin:{ DefaultNames:[RegExprNames.Football]},
@@ -160,8 +169,8 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: "The match() method retrieves the result of matching a string of the match in an array.",
           Code:{
-            Call:'var regex = new RegExp("[A-Z]", "g");',
-            TypeResults: RegExprTypeResults.MatchMethod,
+            Call:RegExprVariables.Object + '.match(/[A-Z]/g);',
+            TypeResults: RegExprTypeResults.ResultArray,
           },
           Begin:{ DefaultNames:[RegExprNames.Fox]},
         }
@@ -172,7 +181,8 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: "The matchAll() method returns an iterator of all results matching a string against a regular expression, including capturing groups.",
           Code:{
-            Call:'var regex = /t(e)(st(\\d?))/g;',
+
+            Call:'[...' + RegExprVariables.Object + '.matchAll(/t(e)(st(\\d?))/g)];',
             TypeResults: RegExprTypeResults.MatchAllMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.TestTwo]},
@@ -184,7 +194,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: "The replace() method returns a new string with first of a pattern replaced by a replacement. Replace first occurrence.",
           Code:{
-            Call:'var new_string = str.replace("dog", "monkey") ',
+            Call:StringVariables.Object +'.replace("dog", "monkey");',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.TestTwo]},
@@ -196,7 +206,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: "The replaceAll() method returns a new string with all matches of a pattern replaced by a replacement.",
           Code:{
-            Call:'var regex = /b/g;',
+            Call:'/b/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.Ball]},
@@ -208,8 +218,8 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: "The search() method executes a search for a match between a regular expression and this String object. Return index first occurrence.",
           Code:{
-            Call:'var regex = /dog/;',
-            TypeResults: RegExprTypeResults.SearchMethod,
+            Call:RegExprVariables.Object +'.search("dog");',
+            TypeResults: RegExprTypeResults.ResultNumber,
           },
           Begin:{ DefaultNames:[RegExprNames.Fox]},
         }
@@ -221,7 +231,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: 'The "d" flag indicates that the result of a regular expression match should contain the start and end indices of the substrings of each capture group. ',
           Code:{
-            Call:'var regex = new RegExp("foo", "gd");',
+            Call:'/foo/gd',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.Foo]},
@@ -234,7 +244,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: 'The "g" flag indicates that the regular expression should be tested against all possible matches in a string. A regular expression defined as both global ("g") and sticky ("y") will ignore the global flag and perform sticky matches. ',
           Code:{
-            Call:'var regex = new RegExp("foo", "g");',
+            Call:'/foo/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.Foo]},
@@ -246,7 +256,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: 'Does a case-insensitive search.',
           Code:{
-            Call:'var regex = new RegExp("foo", "gi");',
+            Call:'/foo/gi/',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.Foo]},
@@ -258,7 +268,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: 'Allows to match newline characters.',
           Code:{
-            Call:'var regex = new RegExp("bar.example","s");',
+            Call:'/bar.example/s',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.Dot]},
@@ -270,7 +280,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '"unicode"; treat a pattern as a sequence of unicode code points. Unicode Character "LATIN SMALL LETTER A" (U+0061)',
           Code:{
-            Call:'var regex = new RegExp("u{61}", "u");',
+            Call:'/u{61}/u',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.Fish]},
@@ -282,7 +292,7 @@ export class RegExprService extends MainService{
         ComponentType : ContextComponentType.RegExr,
           CodeDescription: 'Perform a "sticky" search that matches starting at the current position in the target string. The search is the word (the), space( ), and many letters. With the Sticky Flag set the system look for match at the Last Index. The system does not look for match any other place in the sentence.',
           Code:{
-            Call:'var regex = new RegExp("the [a-zA-Z]+", "y");',
+            Call:'/the [a-zA-Z]+/y',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.Dog]},
@@ -294,7 +304,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: ' (x|y) - Matches either "x" or "y". For example, /green|red/ matches "green" in "green apple" and "red" in "red apple".',
           Code:{
-            Call:'var regex = /(red|green)/g;',
+            Call:'/(red|green)/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.Apple]},
@@ -306,7 +316,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '•\t[xyz] or [a-c] - A character class. Matches any one of the enclosed characters. You can specify a range of characters by using a hyphen, but if the hyphen appears as the first or last character enclosed in the square brackets it is taken as a literal hyphen to be included in the character class as a normal character. For example, [abcd] is the same as [a-d]. They match the "b" in "brisket", and the "c" in "chop". For example, [abcd-] and [-abcd] match the "b" in "brisket", the "c" in "chop", and the "-" (hyphen) in "non-profit".',
           Code:{
-            Call:'var regex = /[aeiouy]/g;',
+            Call:'/[aeiouy]/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.River]},
@@ -319,7 +329,7 @@ export class RegExprService extends MainService{
           CodeDescription: '[^xyz] or [^a-c] - A negated or complemented character class. That is, it matches anything that is not enclosed in the brackets. You can specify a range of characters by using a hyphen, but if the hyphen appears as the first or last character enclosed in the square brackets it is taken as a literal hyphen to be included in the character class as a normal character.\n' +
             'For example, [^abc] is the same as [^a-c]. They initially match "o" in "bacon" and "h" in "chop".\n',
           Code:{
-            Call:'var regex = /[^aeiouy]/g;',
+            Call:'/[^aeiouy]/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.Brisket]},
@@ -333,7 +343,7 @@ export class RegExprService extends MainService{
             '\\n -Where "n" is a positive integer. \\1 refers to the first capturing group in the regular expression. \\2 will refer to the second capturing group and \\n will refer to an nth capturing group.\n' +
             'Where "n" is a positive integer. A back reference to the last substring matching the n parenthetical in the regular expression (counting left parentheses). For example, /apple(,)\\sorange\\1/ matches "apple, orange," in "apple, orange, cherry, peach".\n',
           Code:{
-            Call:'var regex = /(Mom) loves \\1/;',
+            Call:'/(Mom) loves \\1/',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.Mom]},
@@ -345,7 +355,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '. - Find a single character, except newline or line terminator',
           Code:{
-            Call:'var regex = /h.t/g;',
+            Call:'/h.t/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.Hot]},
@@ -357,7 +367,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '\\w - Find a word character. A word character is a character a-z, A-Z, 0-9, including _ (underscore).',
           Code:{
-            Call:'var regex  = /\\w/g;',
+            Call:'/\\w/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.HundredPercent]},
@@ -369,7 +379,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '\\W - Find a non-word character.',
           Code:{
-            Call:'var regex  = /\\W/g;',
+            Call:'/\\W/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.HundredPercent]},
@@ -381,7 +391,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '\\d - Find a digit character',
           Code:{
-            Call:'var regex  = /\\d/g;',
+            Call:'/\\d/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.HundredPercent]},
@@ -393,7 +403,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '\\D - Find a non-digit character.',
           Code:{
-            Call:'var regex  = /\\D/g;',
+            Call:'/\\D/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.HundredPercent]},
@@ -405,7 +415,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '\\s - Find a whitespace character.',
           Code:{
-            Call:'var regex  = /\\s/g;',
+            Call:'/\\s/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.HundredPercent]},
@@ -417,7 +427,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '\\S - Find a non-whitespace character.',
           Code:{
-            Call:'var regex  = /\\S/g;',
+            Call:'/\\S/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.HundredPercent]},
@@ -429,7 +439,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '\\b - Find a match at the beginning/end of a word, beginning like this: \\bHI, end like this: HI\\b.',
           Code:{
-            Call:'var regex = /\\bLO/; var regex = /LO\\b/;',
+            Call:'/\\bLO/ OR /LO\\b/',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.Look]},
@@ -441,7 +451,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '\\B - Find a match, but not at the beginning/end of a word.',
           Code:{
-            Call:'var regex = /\\BLO/; var regex = /LO\\B/;',
+            Call:'/\\BLO/ OR /LO\\B/',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.Look]},
@@ -453,7 +463,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '\\0 - Find a NULL character.',
           Code:{
-            Call:'var regex  = /\\0/;',
+            Call:'/\\0/',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.W3Schools_Null]},
@@ -465,7 +475,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '\\n - Find a new line character.',
           Code:{
-            Call:'var regex  = /\\n/;',
+            Call:'/\\n/',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.W3Schools_New_Line]},
@@ -477,7 +487,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '\\f - Find a form feed character.',
           Code:{
-            Call:'var regex  = /\\f/;',
+            Call:'/\\f/',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.W3Schools_Form_Feed]},
@@ -489,7 +499,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '\\r - Find a carriage return character.',
           Code:{
-            Call:'var regex  = /\\r/;',
+            Call:'/\\r/',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.W3Schools_Carriage_Return]},
@@ -501,7 +511,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '\\t - Find a tab character.',
           Code:{
-            Call:'var regex  = /\\t/;',
+            Call:'/\\t/',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.W3Schools_Tab]},
@@ -513,7 +523,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '\\v - Find a vertical tab character.',
           Code:{
-            Call:'var regex  = /\\v/;',
+            Call:'/\\v/',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.W3Schools_Vertical_Tab]},
@@ -525,7 +535,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '\\xxx - Find the character specified by an octal number xxx. Do a global search for octal number 127 (W) in a string',
           Code:{
-            Call:'var regex  = /\\127/g;',
+            Call:'/\\127/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.W3Schools]},
@@ -537,7 +547,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '\\xdd - Find the character specified by a hexadecimal number dd. \\udddd - Find the Unicode character specified by a hexadecimal number dddd.Do a global search for the hexadecimal number 57 (W) in a string',
           Code:{
-            Call:'var regex  = /\x57/g; var regex  = /\u0057/g;',
+            Call:'/\x57/g OR /\u0057/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.W3Schools]},
@@ -548,7 +558,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: 'n+ - Matches any string that contains at least one n.',
           Code:{
-            Call:'var regex  = /o+/g;',
+            Call:'/o+/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.W3Schools_Hellooo]},
@@ -560,7 +570,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: 'n* - Matches any string that contains zero or more occurrences of n.',
           Code:{
-            Call:'var regex  = /10*/g;',
+            Call:'/10*/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.DecimalPlace]},
@@ -572,7 +582,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: 'n? - Matches any string that contains zero or one occurrence of n.',
           Code:{
-            Call:'var regex  = /10?/g;',
+            Call:'/10?/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.DecimalPlace]},
@@ -584,7 +594,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: 'n{X} - Matches any string that contains a sequence of X n\'s. n{X,Y} - Matches any string that contains a sequence of X to Y n\'s. n{X,} - Matches any string that contains a sequence of at least X n\'s.',
           Code:{
-            Call:'var regex  = /\\d{4}/g; var regex  = /\\d{3,4}/g; var regex  = /\\d{3,}/g;',
+            Call:'/\\d{4}/g OR /\\d{3,4}/g OR /\\d{3,}/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.DecimalPlace]},
@@ -596,7 +606,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: 'n$ - Matches any string with n at the end of it.',
           Code:{
-            Call:'var regex  = /is$/;',
+            Call:'/is$/',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.Is]},
@@ -608,7 +618,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '^n - Matches any string with n at the beginning of ',
           Code:{
-            Call:'var regex  = /^Is/g;',
+            Call:'/^Is/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.Is]},
@@ -620,7 +630,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '?=n - Matches any string that is followed by a specific string n.',
           Code:{
-            Call:'var regex  = /is(?= all)/g;',
+            Call:'/is(?= all)/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.IsAll]},
@@ -632,7 +642,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '?!n - Matches any string that is not followed by a specific string n.',
           Code:{
-            Call:'var regex  = /is(?! all)/gi;',
+            Call:'/is(?! all)/gi',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.IsAll]},

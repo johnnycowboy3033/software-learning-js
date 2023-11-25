@@ -10,4 +10,17 @@ export class ShowComponent {
 
   @Input() displayResult:Results =new Results({ShowPage:false});
 
+  constructor() {
+    // console.log( "Display Results: " + this.displayResult.toString() );
+  }
+
+  toStringExecMethod(convert:any){
+    return "[ "
+        + convert.join()
+        +", index: "  + convert["index"]
+        + ", input: '"  + convert["input"] + "'"
+        + ", groups: "+ convert["groups"]
+        + "]" ;
+  }
+
 }

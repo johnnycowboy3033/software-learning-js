@@ -21,6 +21,7 @@ export class HintComponent  extends MainModule implements OnInit  {
 
   showHint:boolean = false;
 
+  showAssignment:boolean = false;
   showFunc:boolean = false;
   showTable:boolean = false;
   showArgument:boolean = false;
@@ -34,6 +35,7 @@ export class HintComponent  extends MainModule implements OnInit  {
   method:string = '';
   logic:string ='';
 
+  displayAssignment:string = '';
   displayCall:string = '';
   displayTableCode:string ='';
   displayMethod:string='';
@@ -124,6 +126,13 @@ export class HintComponent  extends MainModule implements OnInit  {
     }
     this.displayLogic = this.contextMap.code.logic;
 
+    //Assignments
+    if(typeof this.contextMap.code.assignment != "undefined"){
+      if( this.contextMap.code.assignment.length > 0){
+        this.displayAssignment = this.contextMap.code.assignment;
+      }
+    }
+
     //Call Block (showHint)
     this.displayCall = this.replaceSymbols(this.contextMap.code.call);
 
@@ -150,6 +159,8 @@ export class HintComponent  extends MainModule implements OnInit  {
    * Shows and hides the hint areas  *
    \**********************************/
     this.showHint= !this.showHint;
+
+    if( this.contextMap.code.assignment.length > 0){ this.showAssignment = true }
 
    if(this.type.length > 0){this.showFunc = !this.showFunc;}
     if( this.contextMap._methodTable._parameter.length > 0){this.showTable = !this.showTable;}

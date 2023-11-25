@@ -76,7 +76,12 @@ export class RunComponent extends  MainModule implements OnInit {
 /*
     console.log( 'Code Editor = '  + this.code);
 */
-    this.showSuccess = true;
+
+    //Show Component
+    this.results.showPage = false;
+
+    //The message below the Submit Button.
+    this.showSuccess = true; //(Change Message Color) If this is true the message will be green, or if false be red.
     this.displayMessage = "";
 
     //The user has not select Type Result Radio Button
@@ -104,23 +109,25 @@ export class RunComponent extends  MainModule implements OnInit {
       }
     }
 
+    // @ts-ignore
+    this.results.code = this.code;
     this._sendResult.emit( this.results );
 
     if(this.showSuccess){
       this.displayMessage  = this.displayMessage + "Great Successful!";
+      this.results.run(this.context.get(this.title));
+
     }
+
+    this.showMessage = true;
 
     this.context.get(this.title).usesCode = this.code;
     this.service.sendContext(this.context);
 
-    // @ts-ignore
-    this.results.code = this.code;
-
-    this.results.run(this.context.get(this.title));
-
-    this.showMessage = true;
 
   }
+
+
 
 
 

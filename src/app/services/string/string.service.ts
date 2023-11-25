@@ -195,11 +195,11 @@ export class StringService extends MainService{
           ComponentType: ContextComponentType.String,
           CodeDescription:"A Number indicates whether the reference string comes before, after, or is the same as the compare string in sort order. Returns one of three values:",
           Code:{
-            Call:StringVariables.Object + '.localeCompare(string1);',
+            Call:StringVariables.Object + '.localeCompare("C");',
             TypeResults: StringTypeResults.ResultNumber,
           },
           Begin: {
-            DefaultNames:[StringNames.A, StringNames.C]
+            DefaultNames:[StringNames.A]
           }
         })
     );
@@ -261,7 +261,7 @@ export class StringService extends MainService{
           CodeDescription:"The search() method executes a search for a match between a regular expression and this String object. Return the index position of the search string.",
           Code:{
             Call:StringVariables.Object + '.search("World");',
-            TypeResults: StringTypeResults.ResultString,
+            TypeResults: StringTypeResults.ResultNumber,
           },
           Begin: {
             DefaultNames:[StringNames.HelloWorld]
