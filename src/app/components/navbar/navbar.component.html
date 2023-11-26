@@ -1,264 +1,319 @@
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: salmon;">
-  <div class="container-fluid">
-    <a class="navbar-brand fw-bold" href="#">Home</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<div *ngIf="showBreadCrumbs; else elseBlock">
+  <div style="background-color: salmon; height:150px">
 
-        <!-- Array -->
+    <button [ngClass]="[home]"  (click)="ListMenu({ 'Name':'Home'} )"  >Home</button>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Array
-          </a>
+    <button [ngClass]="[mainArray]" (click)="ListMenu({ 'Name':'Array'} )"  >Array</button>
+    <button [ngClass]="[mainString]" (click)="ListMenu({ 'Name':'String'} )"  >String</button>
+    <button [ngClass]="[mainRegExpr]" (click)="ListMenu({ 'Name':'Regular Expression'} )"  >Regular Expression</button>
 
-          <ul class="dropdown-menu">
+    <button [ngClass]="[arrayMethodCalls]" (click)="ListMenu({ 'Name':'Array Method Calls'} )"  >Array -> Method Calls</button>
+    <button [ngClass]="[arrayDataStructures]" (click)="ListMenu({ 'Name':'Array Data Structures'} )"  >Data Structures</button>
+    <button [ngClass]="[arrayFunctionCalls]" (click)="ListMenu({ 'Name':'Array Function Calls'} )"  >Function Calls</button>
 
-            <li class="nav-item dropend">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Method Calls
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="Array/Concatenate">Concatenate</a></li>
-                <li><a class="dropdown-item" href="Array/Copy_Within">Copy Within</a></li>
-                <li><a class="dropdown-item" href="Array/Fill">Fill</a></li>
-                <li><a class="dropdown-item" href="Array/Includes">Includes</a></li>
-                <li><a class="dropdown-item" href="Array/Index_Of">Index Of</a></li>
-                <li><a class="dropdown-item" href="Array/IsArray">Is Array</a></li>
-                <li><a class="dropdown-item" href="Array/Join">Join</a></li>
-                <li><a class="dropdown-item" href="Array/Last_Index_Of">Last Index Of</a></li>
-                <li><a class="dropdown-item" href="Array/Reverse">Reverse</a></li>
-                <li><a class="dropdown-item" href="Array/Slice">Slice</a></li>
-                <li><a class="dropdown-item" href="Array/Splice">Splice</a></li>
-                <li><a class="dropdown-item" href="Array/To_String">To String</a></li>
-                <li><a class="dropdown-item" href="Array/Value_Of">Value Of</a></li>
-              </ul>
-            </li>
+    <div *ngIf="showArrayMethodCalls; else elseBlockArrayMethodCalls">
+      <table>
 
-            <li class="nav-item dropend">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Data Structures
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="Array/Entries">Entries</a></li>
-                <li><a class="dropdown-item" href="Array/For_Each">For Each</a></li>
-                <li><a class="dropdown-item" href="Array/Keys">Keys</a></li>
-                <li><a class="dropdown-item" href="Array/Map">Map</a></li>
-                <li><a class="dropdown-item" href="Array/Pop">Pop</a></li>
-                <li><a class="dropdown-item" href="Array/Prototype">Prototype</a></li>
-                <li><a class="dropdown-item" href="Array/Push">Push</a></li>
-                <li><a class="dropdown-item" href="Array/Shift">Shift</a></li>
-                <li><a class="dropdown-item" href="Array/Sort">Sort</a></li>
-                <li><a class="dropdown-item" href="Array/Unshift">Unshift</a></li>
-              </ul>
-            </li>
-
-
-            <li class="nav-item dropend">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Function Calls
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="Array/Every">Every</a></li>
-                <li><a class="dropdown-item" href="Array/Filter">Filter</a></li>
-                <li><a class="dropdown-item" href="Array/Find">Find</a></li>
-                <li><a class="dropdown-item" href="Array/Find_Index">Find Index</a></li>
-                <li><a class="dropdown-item" href="Array/From">From</a></li>
-                <li><a class="dropdown-item" href="Array/Reduce">Reduce</a></li>
-                <li><a class="dropdown-item" href="Array/Reduce_Right">Reduce Right</a></li>
-                <li><a class="dropdown-item" href="Array/Some">Some</a></li>
-              </ul>
-            </li>
-
-
-          </ul>
-
-        </li>
-
-
-        <!-- String -->
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            String
-          </a>
-
-          <ul class="dropdown-menu">
-
-            <li class="nav-item dropend">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Method Calls
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="String/Character_At">Character At</a></li>
-                <li><a class="dropdown-item" href="String/Character_Code_At">Character Code At</a></li>
-                <li><a class="dropdown-item" href="String/Concatenate">Concatenate</a></li>
-                <li><a class="dropdown-item" href="String/From_Character_Code">From Character Code</a></li>
-                <li><a class="dropdown-item" href="String/Length">Length</a></li>
-                <li><a class="dropdown-item" href="String/Repeat">Repeat</a></li>
-                <li><a class="dropdown-item" href="String/Slice">Slice</a></li>
-                <li><a class="dropdown-item" href="String/Split">Split</a></li>
-                <li><a class="dropdown-item" href="String/Substr">Substr</a></li>
-                <li><a class="dropdown-item" href="String/Sub_String">Sub String</a></li>
-                <li><a class="dropdown-item" href="String/To_Lower_Case">To Lower Case</a></li>
-                <li><a class="dropdown-item" href="String/To_String">To String</a></li>
-                <li><a class="dropdown-item" href="String/To_Upper_Case">To Upper Case</a></li>
-                <li><a class="dropdown-item" href="String/Trim">Trim</a></li>
-                <li><a class="dropdown-item" href="String/Value_Of">Value Of</a></li>
-              </ul>
-            </li>
-
-            <li class="nav-item dropend">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Search Call
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="String/Ends_With">Ends With</a></li>
-                <li><a class="dropdown-item" href="String/Includes">Includes</a></li>
-                <li><a class="dropdown-item" href="String/Index_Of">Index Of</a></li>
-                <li><a class="dropdown-item" href="String/Last_Index_Of">Last Index Of</a></li>
-                <li><a class="dropdown-item" href="String/Locale_Compare">Locale Compare</a></li>
-                <li><a class="dropdown-item" href="String/Match">Match</a></li>
-                <li><a class="dropdown-item" href="String/Replace">Replace</a></li>
-                <li><a class="dropdown-item" href="String/Search">Search</a></li>
-                <li><a class="dropdown-item" href="String/Starts_With">Starts With</a></li>
-
-              </ul>
-            </li>
-
-          </ul>
-
-        </li>
-
-        <!-- Regular Expressions -->
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Regular Expressions
-          </a>
-
-          <ul class="dropdown-menu">
-
-            <li class="nav-item dropend">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Objects
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="RegExpr/Object_Notation">Object Notation</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Object_Constructor">Object Constructor</a></li>
-              </ul>
-            </li>
-
-            <li class="nav-item dropend">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                RegExpr Class
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="RegExpr/RegExpr">Reg Expr</a></li>
-              </ul>
-            </li>
-
-            <li class="nav-item dropend">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                RegExpr Methods
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="RegExpr/Exec">Exec</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Test">Test</a></li>
-              </ul>
-            </li>
-
-            <li class="nav-item dropend">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                String Methods
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="RegExpr/Match">Match</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Match_All">Match All</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Replace">Replace</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Replace_All">Replace All</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Search">Search</a></li>
-              </ul>
-            </li>
-
-            <li class="nav-item dropend">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Modifiers
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="RegExpr/Start_End_Indices">Start/End Indices</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Global">Global</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Case_Insensitive">Case Insensitive</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Multi_Line_Search">Multi Line Search</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Match_Newline">Match Newline</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Unicode">Unicode</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Sticky">Sticky</a></li>
-              </ul>
-            </li>
-
-            <li class="nav-item dropend">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Groups and Ranges
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="RegExpr/Matches_Either">Matches Either</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Matches_Any_One">Matches Any One</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Negated">Negated</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Capturing_Group">Capturing Group</a></li>
-              </ul>
-            </li>
-
-            <li class="nav-item dropend">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Meta Characters
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="RegExpr/Single">Single</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Word">Word</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Non_Word">Non Word</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Digit">Digit</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Non_Digit">Non digit</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Whitespace">Whitespace</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Non_Whitespace">Non Whitespace</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Beginning_End_Word">Beginning End Word</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Non_Beginning_End_Word">Non Beginning End Word</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Null">Null</a></li>
-                <li><a class="dropdown-item" href="RegExpr/New_Line">Newline</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Form_Feed">Form Feed</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Carriage_Return">Carriage Return</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Tab">Tab</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Vertical_Tab">Vertical Tab</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Octal_Number">Octal Number</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Hexadecimal_Number">Hexa Decimal Number</a></li>
-
-
-              </ul>
-            </li>
-
-            <li class="nav-item dropend">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Quantifiers
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="RegExpr/At_Least_One">At Least One</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Zero_Or_More">Zero Or More</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Zero_Or_One">Zero Or One</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Sequence_Of">Sequence of</a></li>
-                <li><a class="dropdown-item" href="RegExpr/End">End</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Beginning">Beginning</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Specific_String">Specific String</a></li>
-                <li><a class="dropdown-item" href="RegExpr/Non_Specific_String">Non Specific String</a></li>
-              </ul>
-            </li>
-
-          </ul>
-
-
-        </li>
-
-      </ul>
+        <tr>
+          <td><a class="dropdown-item" href="Array/Concatenate">Concatenate</a></td>
+          <td><a class="dropdown-item" href="Array/Copy_Within">Copy Within</a></td>
+          <td><a class="dropdown-item" href="Array/Fill">Fill</a></td>
+          <td><a class="dropdown-item" href="Array/Includes">Includes</a></td>
+          <td><a class="dropdown-item" href="Array/Index_Of">Index Of</a></td>
+          <td><a class="dropdown-item" href="Array/IsArray">Is Array</a></td>
+          <td><a class="dropdown-item" href="Array/Join">Join</a></td>
+          <td><a class="dropdown-item" href="Array/Last_Index_Of">Last Index Of</a></td>
+          <td><a class="dropdown-item" href="Array/Reverse">Reverse</a></td>
+          <td><a class="dropdown-item" href="Array/Slice">Slice</a></td>
+          <td><a class="dropdown-item" href="Array/Splice">Splice</a></td>
+          <td><a class="dropdown-item" href="Array/To_String">To String</a></td>
+          <td><a class="dropdown-item" href="Array/Value_Of">Value Of</a></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
     </div>
+    <div>
+      <ng-template #elseBlockArrayMethodCalls>
+      </ng-template>
+    </div>
+
   </div>
-</nav>
+</div>
+<div>
+  <ng-template #elseBlock>
+
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: salmon; height:75px">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+            <!-- Array -->
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Array
+              </a>
+
+              <ul class="dropdown-menu">
+
+                <li class="nav-item dropend">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Method Calls
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="Array/Concatenate">Concatenate</a></li>
+                    <li><a class="dropdown-item" href="Array/Copy_Within">Copy Within</a></li>
+                    <li><a class="dropdown-item" href="Array/Fill">Fill</a></li>
+                    <li><a class="dropdown-item" href="Array/Includes">Includes</a></li>
+                    <li><a class="dropdown-item" href="Array/Index_Of">Index Of</a></li>
+                    <li><a class="dropdown-item" href="Array/IsArray">Is Array</a></li>
+                    <li><a class="dropdown-item" href="Array/Join">Join</a></li>
+                    <li><a class="dropdown-item" href="Array/Last_Index_Of">Last Index Of</a></li>
+                    <li><a class="dropdown-item" href="Array/Reverse">Reverse</a></li>
+                    <li><a class="dropdown-item" href="Array/Slice">Slice</a></li>
+                    <li><a class="dropdown-item" href="Array/Splice">Splice</a></li>
+                    <li><a class="dropdown-item" href="Array/To_String">To String</a></li>
+                    <li><a class="dropdown-item" href="Array/Value_Of">Value Of</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item dropend">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Data Structures
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="Array/Entries">Entries</a></li>
+                    <li><a class="dropdown-item" href="Array/For_Each">For Each</a></li>
+                    <li><a class="dropdown-item" href="Array/Keys">Keys</a></li>
+                    <li><a class="dropdown-item" href="Array/Map">Map</a></li>
+                    <li><a class="dropdown-item" href="Array/Pop">Pop</a></li>
+                    <li><a class="dropdown-item" href="Array/Prototype">Prototype</a></li>
+                    <li><a class="dropdown-item" href="Array/Push">Push</a></li>
+                    <li><a class="dropdown-item" href="Array/Shift">Shift</a></li>
+                    <li><a class="dropdown-item" href="Array/Sort">Sort</a></li>
+                    <li><a class="dropdown-item" href="Array/Unshift">Unshift</a></li>
+                  </ul>
+                </li>
+
+
+                <li class="nav-item dropend">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Function Calls
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="Array/Every">Every</a></li>
+                    <li><a class="dropdown-item" href="Array/Filter">Filter</a></li>
+                    <li><a class="dropdown-item" href="Array/Find">Find</a></li>
+                    <li><a class="dropdown-item" href="Array/Find_Index">Find Index</a></li>
+                    <li><a class="dropdown-item" href="Array/From">From</a></li>
+                    <li><a class="dropdown-item" href="Array/Reduce">Reduce</a></li>
+                    <li><a class="dropdown-item" href="Array/Reduce_Right">Reduce Right</a></li>
+                    <li><a class="dropdown-item" href="Array/Some">Some</a></li>
+                  </ul>
+                </li>
+
+
+              </ul>
+
+            </li>
+
+
+            <!-- String -->
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                String
+              </a>
+
+              <ul class="dropdown-menu">
+
+                <li class="nav-item dropend">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Method Calls
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="String/Character_At">Character At</a></li>
+                    <li><a class="dropdown-item" href="String/Character_Code_At">Character Code At</a></li>
+                    <li><a class="dropdown-item" href="String/Concatenate">Concatenate</a></li>
+                    <li><a class="dropdown-item" href="String/From_Character_Code">From Character Code</a></li>
+                    <li><a class="dropdown-item" href="String/Length">Length</a></li>
+                    <li><a class="dropdown-item" href="String/Repeat">Repeat</a></li>
+                    <li><a class="dropdown-item" href="String/Slice">Slice</a></li>
+                    <li><a class="dropdown-item" href="String/Split">Split</a></li>
+                    <li><a class="dropdown-item" href="String/Substr">Substr</a></li>
+                    <li><a class="dropdown-item" href="String/Sub_String">Sub String</a></li>
+                    <li><a class="dropdown-item" href="String/To_Lower_Case">To Lower Case</a></li>
+                    <li><a class="dropdown-item" href="String/To_String">To String</a></li>
+                    <li><a class="dropdown-item" href="String/To_Upper_Case">To Upper Case</a></li>
+                    <li><a class="dropdown-item" href="String/Trim">Trim</a></li>
+                    <li><a class="dropdown-item" href="String/Value_Of">Value Of</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item dropend">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Search Call
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="String/Ends_With">Ends With</a></li>
+                    <li><a class="dropdown-item" href="String/Includes">Includes</a></li>
+                    <li><a class="dropdown-item" href="String/Index_Of">Index Of</a></li>
+                    <li><a class="dropdown-item" href="String/Last_Index_Of">Last Index Of</a></li>
+                    <li><a class="dropdown-item" href="String/Locale_Compare">Locale Compare</a></li>
+                    <li><a class="dropdown-item" href="String/Match">Match</a></li>
+                    <li><a class="dropdown-item" href="String/Replace">Replace</a></li>
+                    <li><a class="dropdown-item" href="String/Search">Search</a></li>
+                    <li><a class="dropdown-item" href="String/Starts_With">Starts With</a></li>
+
+                  </ul>
+                </li>
+
+              </ul>
+
+            </li>
+
+            <!-- Regular Expressions -->
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Regular Expressions
+              </a>
+
+              <ul class="dropdown-menu">
+
+                <li class="nav-item dropend">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Objects
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="RegExpr/Object_Notation">Object Notation</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Object_Constructor">Object Constructor</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item dropend">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    RegExpr Class
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="RegExpr/RegExpr">Reg Expr</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item dropend">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    RegExpr Methods
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="RegExpr/Exec">Exec</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Test">Test</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item dropend">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    String Methods
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="RegExpr/Match">Match</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Match_All">Match All</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Replace">Replace</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Replace_All">Replace All</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Search">Search</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item dropend">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Modifiers
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="RegExpr/Start_End_Indices">Start/End Indices</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Global">Global</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Case_Insensitive">Case Insensitive</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Multi_Line_Search">Multi Line Search</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Match_Newline">Match Newline</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Unicode">Unicode</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Sticky">Sticky</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item dropend">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Groups and Ranges
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="RegExpr/Matches_Either">Matches Either</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Matches_Any_One">Matches Any One</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Negated">Negated</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Capturing_Group">Capturing Group</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item dropend">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Meta Characters
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="RegExpr/Single">Single</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Word">Word</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Non_Word">Non Word</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Digit">Digit</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Non_Digit">Non digit</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Whitespace">Whitespace</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Non_Whitespace">Non Whitespace</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Beginning_End_Word">Beginning End Word</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Non_Beginning_End_Word">Non Beginning End Word</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Null">Null</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/New_Line">Newline</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Form_Feed">Form Feed</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Carriage_Return">Carriage Return</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Tab">Tab</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Vertical_Tab">Vertical Tab</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Octal_Number">Octal Number</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Hexadecimal_Number">Hexa Decimal Number</a></li>
+
+
+                  </ul>
+                </li>
+
+                <li class="nav-item dropend">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Quantifiers
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="RegExpr/At_Least_One">At Least One</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Zero_Or_More">Zero Or More</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Zero_Or_One">Zero Or One</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Sequence_Of">Sequence of</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/End">End</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Beginning">Beginning</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Specific_String">Specific String</a></li>
+                    <li><a class="dropdown-item" href="RegExpr/Non_Specific_String">Non Specific String</a></li>
+                  </ul>
+                </li>
+
+              </ul>
+
+
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+  </ng-template>
+</div>
+
+<button id="MenuSelect" (click)="changeMenu()" > <b>{{buttonLabel}} </b> </button>
+
+
+
+

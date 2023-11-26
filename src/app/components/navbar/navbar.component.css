@@ -27,3 +27,37 @@
     margin-left: .5em;
   }
 }
+
+#MenuSelect{
+  border-radius: 8px;
+  background-color:#fba69c;
+  border: 2px solid ghostwhite;
+  font-size: 16px;
+  width: 150px;
+  color:white;
+}
+
+ .beadCrumb{
+  background: none!important;
+  border: none;
+  padding: 5px !important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: white;
+  cursor: pointer;
+}
+
+table{
+    margin-left: 30px;
+}
+
+ .hidden{
+     display:none;
+ }
+
+a {
+    margin: 10px;
+    color:white;
+}
+
