@@ -61,7 +61,50 @@ export class NavbarComponent {
     this.arrayFunctionCalls = "hidden";
   }
 
+  stringMethodCalls:string = "hidden";
+  stringSearchCalls:string = "hidden";
 
+  showString(){
+    this.stringMethodCalls = "cos-bead-crumb";
+    this.stringSearchCalls = "cos-bead-crumb";
+  }
+
+  hideString(){
+    this.stringMethodCalls = "hidden";
+    this.stringSearchCalls = "hidden";
+  }
+
+
+  regExprObjects:string = "hidden";
+  regExprClasses:string = "hidden";
+  regExprMethods:string = "hidden";
+  regExprStringMethods:string = "hidden";
+  regExprModifiers:string = "hidden";
+  regExprGroupsAndRanges:string = "hidden";
+  regExprMetaCharacters:string = "hidden";
+  regExprQuantifiers:string = "hidden";
+
+  showRegExpr(){
+    this.regExprObjects = "cos-bead-crumb";
+    this.regExprClasses = "cos-bead-crumb";
+    this.regExprMethods = "cos-bead-crumb";
+    this.regExprStringMethods = "cos-bead-crumb";
+    this.regExprModifiers = "cos-bead-crumb";
+    this.regExprGroupsAndRanges = "cos-bead-crumb";
+    this.regExprMetaCharacters = "cos-bead-crumb";
+    this.regExprQuantifiers = "cos-bead-crumb";
+  }
+
+  hideRegExpr(){
+    this.regExprObjects  = "hidden";
+    this.regExprClasses  = "hidden";
+    this.regExprMethods  = "hidden";
+    this.regExprStringMethods  = "hidden";
+    this.regExprModifiers  = "hidden";
+    this.regExprGroupsAndRanges  = "hidden";
+    this.regExprMetaCharacters  = "hidden";
+    this.regExprQuantifiers  = "hidden";
+  }
 
   ListMenu(data:any){
 
@@ -70,6 +113,8 @@ export class NavbarComponent {
     if(data.Name == "Home"){
       this.showMain();
       this.hideArray();
+      this.hideString();
+      this.hideRegExpr();
 
       this.showArrayMethodCalls = false;
     }
@@ -78,6 +123,17 @@ export class NavbarComponent {
       this.hideMain();
       this.showArray();
     }
+
+    if( data.Name == "String"){
+      this.hideMain();
+      this.showString();
+    }
+
+    if( data.Name == "RegExpr"){
+      this.hideMain();
+      this.showRegExpr();
+    }
+
 
     if( data.Name == "Array Method Calls"){this.showArrayMethodCalls = true;}
 

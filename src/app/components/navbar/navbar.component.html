@@ -8,11 +8,23 @@
 
     <button [ngClass]="[mainArray]" (click)="ListMenu({ 'Name':'Array'} )"  >Array</button>
     <button [ngClass]="[mainString]" (click)="ListMenu({ 'Name':'String'} )"  >String</button>
-    <button [ngClass]="[mainRegExpr]" (click)="ListMenu({ 'Name':'Regular Expression'} )"  >Regular Expression</button>
+    <button [ngClass]="[mainRegExpr]" (click)="ListMenu({ 'Name':'RegExpr'} )"  >Regular Expressions</button>
 
     <button [ngClass]="[arrayMethodCalls]" (click)="ListMenu({ 'Name':'Array Method Calls'} )"  >Array -> Method Calls</button>
     <button [ngClass]="[arrayDataStructures]" (click)="ListMenu({ 'Name':'Array Data Structures'} )"  >Data Structures</button>
     <button [ngClass]="[arrayFunctionCalls]" (click)="ListMenu({ 'Name':'Array Function Calls'} )"  >Function Calls</button>
+
+    <button [ngClass]="[stringMethodCalls]" (click)="ListMenu({ 'Name':'String Method Calls'} )"  >String -> Method Calls</button>
+    <button [ngClass]="[stringSearchCalls]" (click)="ListMenu({ 'Name':'String Search Calls'} )"  >Search Calls</button>
+
+    <button [ngClass]="[regExprObjects]" (click)="ListMenu({ 'Name':'RegExpr Method Calls'} )"  >Regular Expressions -> Objects</button>
+    <button [ngClass]="[regExprClasses]" (click)="ListMenu({ 'Name':'RegExpr Classes'} )"  >RegExpr Classes</button>
+    <button [ngClass]="[regExprMethods]" (click)="ListMenu({ 'Name':'RegExpr Methods'} )"  >RegExpr Methods</button>
+    <button [ngClass]="[regExprStringMethods]" (click)="ListMenu({ 'Name':'RegExpr String Methods'} )"  >String Methods</button>
+    <button [ngClass]="[regExprModifiers]" (click)="ListMenu({ 'Name':'RegExpr Modifiers'} )"  >Modifiers</button>
+    <button [ngClass]="[regExprGroupsAndRanges]" (click)="ListMenu({ 'Name':'RegExpr Groups and Ranges'} )"  >Groups and Ranges</button>
+    <button [ngClass]="[regExprMetaCharacters]" (click)="ListMenu({ 'Name':'RegExpr Meta Characters'} )"  >Meta Characters</button>
+    <button [ngClass]="[regExprQuantifiers]" (click)="ListMenu({ 'Name':'RegExpr Quantifiers'} )"  >Quantifiers</button>
 
     <div *ngIf="showArrayMethodCalls; else elseBlockArrayMethodCalls">
       <table class="cos-bread-crumb-table" >
@@ -165,7 +177,7 @@
 
                 <li class="nav-item dropend">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Search Call
+                    Search Calls
                   </a>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="String/Ends_With">Ends With</a></li>
@@ -206,7 +218,7 @@
 
                 <li class="nav-item dropend">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    RegExpr Class
+                    RegExpr Classes
                   </a>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="RegExpr/RegExpr">Reg Expr</a></li>
