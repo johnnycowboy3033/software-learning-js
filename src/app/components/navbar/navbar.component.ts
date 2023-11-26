@@ -22,7 +22,7 @@ export class NavbarComponent {
     }
   };
 
-  home:string= "fs-5 fw-bold cos-bead-crumb";
+  main:string= "fs-5 fw-bold cos-bead-crumb";
 
   mainArray:string = "cos-bead-crumb";
   mainString:string = "cos-bead-crumb";
@@ -140,7 +140,7 @@ export class NavbarComponent {
 
     this.hideTablesMenus();
 
-    if(data.Name == "Home"){
+    if(data.Name == "Main"){
       this.showMain();
       this.hideArray();
       this.hideString();

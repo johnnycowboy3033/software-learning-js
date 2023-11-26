@@ -189,6 +189,18 @@ export class RegExprService extends MainService{
         }
       ));
 
+      this.context.set(RegExprComponentNames.Multi_Line_Search,
+          new ContextRegExpr({
+                  ComponentType : ContextComponentType.RegExr,
+                  CodeDescription: "\\n - Find a Multi Line search.",
+                  Code:{
+                      Call:'/\\n/',
+                      TypeResults: RegExprTypeResults.ReplaceMethod,
+                  },
+                  Begin:{ DefaultNames:[RegExprNames.W3Schools_New_Line]},
+              }
+          ));
+
     this.context.set(RegExprComponentNames.Replace,
       new ContextRegExpr({
           ComponentType : ContextComponentType.RegExr,
