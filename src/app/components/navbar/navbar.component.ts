@@ -22,16 +22,16 @@ export class NavbarComponent {
     }
   };
 
-  home:string= "fs-5 fw-bold beadCrumb";
+  home:string= "fs-5 fw-bold cos-bead-crumb";
 
-  mainArray:string = "beadCrumb";
-  mainString:string = "beadCrumb";
-  mainRegExpr:string = "beadCrumb";
+  mainArray:string = "cos-bead-crumb";
+  mainString:string = "cos-bead-crumb";
+  mainRegExpr:string = "cos-bead-crumb";
 
   showMain(){
-    this.mainArray = "beadCrumb";
-    this.mainString = "beadCrumb";
-    this.mainRegExpr =  "beadCrumb";
+    this.mainArray = "cos-bead-crumb";
+    this.mainString = "cos-bead-crumb";
+    this.mainRegExpr =  "cos-bead-crumb";
   }
   hideMain(){
     this.mainArray =  "hidden";
@@ -45,9 +45,9 @@ export class NavbarComponent {
   arrayFunctionCalls:string = "hidden";
 
   showArray(){
-    this.arrayMethodCalls = "beadCrumb";
-    this.arrayDataStructures = "beadCrumb";
-    this.arrayFunctionCalls = "beadCrumb";
+    this.arrayMethodCalls = "cos-bead-crumb";
+    this.arrayDataStructures = "cos-bead-crumb";
+    this.arrayFunctionCalls = "cos-bead-crumb";
   }
 
   hideArray(){

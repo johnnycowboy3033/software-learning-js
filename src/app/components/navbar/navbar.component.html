@@ -15,22 +15,22 @@
     <button [ngClass]="[arrayFunctionCalls]" (click)="ListMenu({ 'Name':'Array Function Calls'} )"  >Function Calls</button>
 
     <div *ngIf="showArrayMethodCalls; else elseBlockArrayMethodCalls">
-      <table>
+      <table class="cos-bread-crumb-table" >
 
         <tr>
-          <td><a class="dropdown-item" href="Array/Concatenate">Concatenate</a></td>
-          <td><a class="dropdown-item" href="Array/Copy_Within">Copy Within</a></td>
-          <td><a class="dropdown-item" href="Array/Fill">Fill</a></td>
-          <td><a class="dropdown-item" href="Array/Includes">Includes</a></td>
-          <td><a class="dropdown-item" href="Array/Index_Of">Index Of</a></td>
-          <td><a class="dropdown-item" href="Array/IsArray">Is Array</a></td>
-          <td><a class="dropdown-item" href="Array/Join">Join</a></td>
-          <td><a class="dropdown-item" href="Array/Last_Index_Of">Last Index Of</a></td>
-          <td><a class="dropdown-item" href="Array/Reverse">Reverse</a></td>
-          <td><a class="dropdown-item" href="Array/Slice">Slice</a></td>
-          <td><a class="dropdown-item" href="Array/Splice">Splice</a></td>
-          <td><a class="dropdown-item" href="Array/To_String">To String</a></td>
-          <td><a class="dropdown-item" href="Array/Value_Of">Value Of</a></td>
+          <td><a class="cos-bread-crumb-item" href="Array/Concatenate">Concatenate</a></td>
+          <td><a class="cos-bread-crumb-item" href="Array/Copy_Within">Copy Within</a></td>
+          <td><a class="cos-bread-crumb-item" href="Array/Fill">Fill</a></td>
+          <td><a class="cos-bread-crumb-item" href="Array/Includes">Includes</a></td>
+          <td><a class="cos-bread-crumb-item" href="Array/Index_Of">Index Of</a></td>
+          <td><a class="cos-bread-crumb-item" href="Array/IsArray">Is Array</a></td>
+          <td><a class="cos-bread-crumb-item" href="Array/Join">Join</a></td>
+          <td><a class="cos-bread-crumb-item" href="Array/Last_Index_Of">Last Index Of</a></td>
+          <td><a class="cos-bread-crumb-item" href="Array/Reverse">Reverse</a></td>
+          <td><a class="cos-bread-crumb-item" href="Array/Slice">Slice</a></td>
+          <td><a class="cos-bread-crumb-item" href="Array/Splice">Splice</a></td>
+          <td><a class="cos-bread-crumb-item" href="Array/To_String">To String</a></td>
+          <td><a class="cos-bread-crumb-item" href="Array/Value_Of">Value Of</a></td>
           <td></td>
           <td></td>
         </tr>
@@ -320,7 +320,7 @@
   </ng-template>
 </div>
 
-<button id="MenuSelect" (click)="changeMenu()" > <b>{{buttonLabel}} </b> </button>
+<button id="cos-menu-select" (click)="changeMenu()" > <b>{{buttonLabel}} </b> </button>
 
 
 
