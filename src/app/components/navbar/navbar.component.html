@@ -43,15 +43,276 @@
           <td><a class="cos-bread-crumb-item" href="Array/Splice">Splice</a></td>
           <td><a class="cos-bread-crumb-item" href="Array/To_String">To String</a></td>
           <td><a class="cos-bread-crumb-item" href="Array/Value_Of">Value Of</a></td>
-          <td></td>
-          <td></td>
         </tr>
+
       </table>
+
     </div>
     <div>
       <ng-template #elseBlockArrayMethodCalls>
       </ng-template>
     </div>
+
+
+      <div *ngIf="showArrayDataStructures; else elseBlockArrayDataStructures">
+        <table class="cos-bread-crumb-table" >
+
+          <tr>
+            <td><a class="cos-bread-crumb-item" href="Array/Entries">Entries</a></td>
+            <td><a class="cos-bread-crumb-item" href="Array/For_Each">For Each</a></td>
+            <td><a class="cos-bread-crumb-item" href="Array/Keys">Keys</a></td>
+            <td><a class="cos-bread-crumb-item" href="Array/Map">Map</a></td>
+            <td><a class="cos-bread-crumb-item" href="Array/Pop">Pop</a></td>
+            <td><a class="cos-bread-crumb-item" href="Array/Prototype">Prototype</a></td>
+            <td><a class="cos-bread-crumb-item" href="Array/Push">Push</a></td>
+            <td><a class="cos-bread-crumb-item" href="Array/Shift">Shift</a></td>
+            <td><a class="cos-bread-crumb-item" href="Array/Sort">Sort</a></td>
+            <td><a class="cos-bread-crumb-item" href="Array/Unshift">Unshift</a></td>
+          </tr>
+
+        </table>
+
+      </div>
+      <div>
+        <ng-template #elseBlockArrayDataStructures>
+        </ng-template>
+      </div>
+
+
+      <div *ngIf="showArrayFunctionCalls; else elseBlockArrayFunctionCalls">
+        <table class="cos-bread-crumb-table" >
+
+          <tr>
+            <td><a class="cos-bread-crumb-item" href="Array/Every">Every</a></td>
+            <td><a class="cos-bread-crumb-item" href="Array/Filter">Filter</a></td>
+            <td><a class="cos-bread-crumb-item" href="Array/Find">Find</a></td>
+            <td><a class="cos-bread-crumb-item" href="Array/Find_Index">Find Index</a></td>
+            <td><a class="cos-bread-crumb-item" href="Array/From">From</a></td>
+            <td><a class="cos-bread-crumb-item" href="Array/Reduce">Reduce</a></td>
+            <td><a class="cos-bread-crumb-item" href="Array/Reduce_Right">Reduce Right</a></td>
+            <td><a class="cos-bread-crumb-item" href="Array/Some">Some</a></td>
+          </tr>
+
+        </table>
+
+      </div>
+      <div>
+        <ng-template #elseBlockArrayFunctionCalls>
+        </ng-template>
+      </div>
+
+      <div *ngIf="showStringMethodCalls; else elseBlockStringMethodCalls">
+        <table class="cos-bread-crumb-table" >
+
+          <tr>
+            <td><a class="cos-bread-crumb-item" href="String/Character_At">Character At</a></td>
+            <td><a class="cos-bread-crumb-item" href="String/Character_Code_At">Character Code At</a></td>
+            <td><a class="cos-bread-crumb-item" href="String/Concatenate">Concatenate</a></td>
+            <td><a class="cos-bread-crumb-item" href="String/From_Character_Code">From Character Code</a></td>
+            <td><a class="cos-bread-crumb-item" href="String/Length">Length</a></td>
+            <td><a class="cos-bread-crumb-item" href="String/Repeat">Repeat</a></td>
+            <td><a class="cos-bread-crumb-item" href="String/Stdce">Stdce</a></td>
+            <td><a class="cos-bread-crumb-item" href="String/Sptdt">Sptdt</a></td>
+            <td><a class="cos-bread-crumb-item" href="String/Substr">Substr</a></td>
+            <td><a class="cos-bread-crumb-item" href="String/Sub_String">Sub String</a></td>
+            <td><a class="cos-bread-crumb-item" href="String/To_Lower_Case">To Lower Case</a></td>
+            <td><a class="cos-bread-crumb-item" href="String/To_String">To String</a></td>
+            <td><a class="cos-bread-crumb-item" href="String/To_Upper_Case">To Upper Case</a></td>
+            <td><a class="cos-bread-crumb-item" href="String/Trim">Trim</a></td>
+            <td><a class="cos-bread-crumb-item" href="String/Value_Of">Value Of</a></td>
+          </tr>
+
+        </table>
+
+      </div>
+      <div>
+        <ng-template #elseBlockStringMethodCalls>
+        </ng-template>
+      </div>
+
+
+      <div *ngIf="showStringSearchCalls; else elseBlockStringSearchCalls">
+        <table class="cos-bread-crumb-table" >
+
+          <tr>
+            <td><a class="cos-bread-crumb-item" href="String/Ends_With">Ends With</a></td>
+            <td><a class="cos-bread-crumb-item" href="String/Includes">Includes</a></td>
+            <td><a class="cos-bread-crumb-item" href="String/Index_Of">Index Of</a></td>
+            <td><a class="cos-bread-crumb-item" href="String/Last_Index_Of">Last Index Of</a></td>
+            <td><a class="cos-bread-crumb-item" href="String/Locale_Compare">Locale Compare</a></td>
+            <td><a class="cos-bread-crumb-item" href="String/Match">Match</a></td>
+            <td><a class="cos-bread-crumb-item" href="String/Replace">Replace</a></td>
+            <td><a class="cos-bread-crumb-item" href="String/Search">Search</a></td>
+            <td><a class="cos-bread-crumb-item" href="String/Starts_With">Starts With</a></td>
+          </tr>
+
+        </table>
+
+      </div>
+      <div>
+        <ng-template #elseBlockStringSearchCalls>
+        </ng-template>
+      </div>
+
+
+      <div *ngIf="showRegExprObjects; else elseBlockRegExprObjects">
+        <table class="cos-bread-crumb-table" >
+
+          <tr>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Object_Notation">Object Notation</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Object_Constructor">Object Constructor</a></td>
+          </tr>
+
+        </table>
+
+      </div>
+      <div>
+        <ng-template #elseBlockRegExprObjects>
+        </ng-template>
+      </div>
+
+      <div *ngIf="showRegExprClasses; else elseBlockRegExprClasses">
+        <table class="cos-bread-crumb-table" >
+
+          <tr>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/RegExpr">Reg Expr</a></td>
+          </tr>
+
+        </table>
+
+      </div>
+      <div>
+        <ng-template #elseBlockRegExprClasses>
+        </ng-template>
+      </div>
+
+      <div *ngIf="showRegExprMethods; else elseBlockRegExprMethods">
+        <table class="cos-bread-crumb-table" >
+
+          <tr>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Exec">Exec</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Test">Test</a></td>
+          </tr>
+
+        </table>
+
+      </div>
+      <div>
+        <ng-template #elseBlockRegExprMethods>
+        </ng-template>
+      </div>
+
+      <div *ngIf="showRegExprStringMethods; else elseBlockRegExprStringMethods">
+        <table class="cos-bread-crumb-table" >
+
+          <tr>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Match">Match</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Match_All">Match All</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Replace">Replace</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Replace_All">Replace All</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Search">Search</a></td>
+          </tr>
+
+        </table>
+
+      </div>
+      <div>
+        <ng-template #elseBlockRegExprStringMethods>
+        </ng-template>
+      </div>
+
+      <div *ngIf="showRegExprModifiers; else elseBlockRegExprModifiers">
+        <table class="cos-bread-crumb-table" >
+
+          <tr>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Start_End_Indices">Start/End Indices</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Global">Global</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Case_Insensitive">Case Insensitive</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Multi_tdne_Search">Multi tdne Search</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Match_Newtdne">Match Newtdne</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Unicode">Unicode</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Sticky">Sticky</a></td>
+          </tr>
+
+        </table>
+
+      </div>
+      <div>
+        <ng-template #elseBlockRegExprModifiers>
+        </ng-template>
+      </div>
+
+      <div *ngIf="showRegExprGroupsAndRanges; else elseBlockRegExprGroupsAndRanges">
+        <table class="cos-bread-crumb-table" >
+
+          <tr>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Matches_Either">Matches Either</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Matches_Any_One">Matches Any One</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Negated">Negated</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Capturing_Group">Capturing Group</a></td>
+          </tr>
+
+        </table>
+
+      </div>
+      <div>
+        <ng-template #elseBlockRegExprGroupsAndRanges>
+        </ng-template>
+      </div>
+
+      <div *ngIf="showRegExprMetaCharacters; else elseBlockRegExprMetaCharacters">
+        <table class="cos-bread-crumb-table" >
+
+          <tr>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Single">Single</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Word">Word</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Non_Word">Non Word</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Digit">Digit</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Non_Digit">Non digit</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Whitespace">Whitespace</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Non_Whitespace">Non Whitespace</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Beginning_End_Word">Beginning End Word</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Non_Beginning_End_Word">Non Beginning End Word</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Null">Null</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/New_tdne">Newtdne</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Form_Feed">Form Feed</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Carriage_Return">Carriage Return</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Tab">Tab</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Vertical_Tab">Vertical Tab</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Octal_Number">Octal Number</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Hexadecimal_Number">Hexa Decimal Number</a></td>
+          </tr>
+
+        </table>
+
+      </div>
+      <div>
+        <ng-template #elseBlockRegExprMetaCharacters>
+        </ng-template>
+      </div>
+
+      <div *ngIf="showRegExprQuantifiers; else elseBlockRegExprQuantifiers">
+        <table class="cos-bread-crumb-table" >
+
+          <tr>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/At_Least_One">At Least One</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Zero_Or_More">Zero Or More</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Zero_Or_One">Zero Or One</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Sequence_Of">Sequence of</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/End">End</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Beginning">Beginning</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Specific_String">Specific String</a></td>
+            <td><a class="cos-bread-crumb-item" href="RegExpr/Non_Specific_String">Non Specific String</a></td>
+          </tr>
+
+        </table>
+
+      </div>
+      <div>
+        <ng-template #elseBlockRegExprQuantifiers>
+        </ng-template>
+      </div>
+
 
 
     </div>
