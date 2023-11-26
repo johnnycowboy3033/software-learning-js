@@ -51,6 +51,7 @@
   /*input has OS specific font-family*/
   color: white;
   cursor: pointer;
+  text-decoration: underline;
 }
 
 .cos-bread-crumb-table{
