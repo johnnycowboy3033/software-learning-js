@@ -65,6 +65,8 @@ export class NavbarComponent {
 
   ListMenu(data:any){
 
+    this.hideTablesMenus();
+
     if(data.Name == "Home"){
       this.showMain();
       this.hideArray();
@@ -77,10 +79,7 @@ export class NavbarComponent {
       this.showArray();
     }
 
-    if( data.Name == "Array Method Calls"){
-      this.hideTablesMenus();
-      this.showArrayMethodCalls = true;
-    }
+    if( data.Name == "Array Method Calls"){this.showArrayMethodCalls = true;}
 
   };
 
