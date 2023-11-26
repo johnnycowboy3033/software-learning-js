@@ -1,5 +1,8 @@
 <div *ngIf="showBreadCrumbs; else elseBlock">
+
   <div style="background-color: salmon; height:150px">
+
+    <div id="cos-bread-crumb-navigation">
 
     <button [ngClass]="[home]"  (click)="ListMenu({ 'Name':'Home'} )"  >Home</button>
 
@@ -38,8 +41,13 @@
       </ng-template>
     </div>
 
+
+    </div>
+
   </div>
+
 </div>
+
 <div>
   <ng-template #elseBlock>
 
