@@ -22,18 +22,18 @@ export class NavbarComponent {
     }
   };
 
-  main:string= "fs-5 fw-bold cos-bead-crumb";
+  main:string= "hidden";
 
   mainArray:string = "cos-bead-crumb";
   mainString:string = "cos-bead-crumb";
   mainRegExpr:string = "cos-bead-crumb";
 
-  showMain(){
+  showMenu(){
     this.mainArray = "cos-bead-crumb";
     this.mainString = "cos-bead-crumb";
     this.mainRegExpr =  "cos-bead-crumb";
   }
-  hideMain(){
+  hideMenu(){
     this.mainArray =  "hidden";
     this.mainString =  "hidden";
     this.mainRegExpr =   "hidden";
@@ -141,28 +141,36 @@ export class NavbarComponent {
     this.hideTablesMenus();
 
     if(data.Name == "Main"){
-      this.showMain();
+      this.showMenu();
       this.hideArray();
       this.hideString();
       this.hideRegExpr();
 
       this.hideSubMenu();
 
+      this.main = "hidden";
+
     }
 
     if( data.Name == "Array"){
-      this.hideMain();
+      this.hideMenu();
       this.showArray();
+
+      this.main = "fs-5 fw-bold cos-bead-crumb";
     }
 
     if( data.Name == "String"){
-      this.hideMain();
+      this.hideMenu();
       this.showString();
+
+      this.main = "fs-5 fw-bold cos-bead-crumb";
     }
 
     if( data.Name == "RegExpr"){
-      this.hideMain();
+      this.hideMenu();
       this.showRegExpr();
+
+      this.main = "fs-5 fw-bold cos-bead-crumb";
     }
 
     if( data.Name == "Array Method Calls"){this.hideSubMenu(); this.showArrayMethodCalls = true;}
