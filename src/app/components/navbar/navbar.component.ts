@@ -164,7 +164,7 @@ export class NavbarComponent {
       this.hideMain();
       this.showRegExpr();
     }
-    
+
     if( data.Name == "Array Method Calls"){this.hideSubMenu(); this.showArrayMethodCalls = true;}
     if( data.Name == "Array Data Structures"){this.hideSubMenu(); this.showArrayDataStructures = true;}
     if( data.Name == "Array Function Calls"){this.hideSubMenu(); this.showArrayFunctionCalls = true;}
