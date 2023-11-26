@@ -39,6 +39,11 @@ export class NavbarComponent {
     this.mainRegExpr =   "hidden";
   }
 
+  hideTablesMenus(){
+    this.showArrayMethodCalls = false;
+
+  }
+
   arrayMethodCalls:string = "hidden";
   showArrayMethodCalls:boolean = false;
   arrayDataStructures:string = "hidden";
@@ -73,6 +78,7 @@ export class NavbarComponent {
     }
 
     if( data.Name == "Array Method Calls"){
+      this.hideTablesMenus();
       this.showArrayMethodCalls = true;
     }
 
