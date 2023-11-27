@@ -98,13 +98,13 @@ export class NavbarComponent {
 
   showRegExpr(){
     this.regExprObjects = "cos-bead-crumb";
-    this.regExprClasses = "cos-bead-crumb";
-    this.regExprMethods = "cos-bead-crumb";
-    this.regExprStringMethods = "cos-bead-crumb";
-    this.regExprModifiers = "cos-bead-crumb";
-    this.regExprGroupsAndRanges = "cos-bead-crumb";
-    this.regExprMetaCharacters = "cos-bead-crumb";
-    this.regExprQuantifiers = "cos-bead-crumb";
+    this.regExprClasses = "cos-bead-crumb cos-text-decor-underline";
+    this.regExprMethods = "cos-bead-crumb cos-text-decor-underline";
+    this.regExprStringMethods = "cos-bead-crumb cos-text-decor-underline";
+    this.regExprModifiers = "cos-bead-crumb cos-text-decor-underline";
+    this.regExprGroupsAndRanges = "cos-bead-crumb cos-text-decor-underline";
+    this.regExprMetaCharacters = "cos-bead-crumb cos-text-decor-underline";
+    this.regExprQuantifiers = "cos-bead-crumb cos-text-decor-underline";
   }
 
   hideRegExpr(){
@@ -156,21 +156,21 @@ export class NavbarComponent {
       this.hideMenu();
       this.showArray();
 
-      this.main = "fs-5 fw-bold cos-main-title";
+      this.main = "fs-5 fw-bold cos-bead-crumb";
     }
 
     if( data.Name == "String"){
       this.hideMenu();
       this.showString();
 
-      this.main = "fs-5 fw-bold cos-main-title";
+      this.main = "fs-5 fw-bold cos-bead-crumb";
     }
 
     if( data.Name == "RegExpr"){
       this.hideMenu();
       this.showRegExpr();
 
-      this.main = "fs-5 fw-bold cos-main-title";
+      this.main = "fs-5 fw-bold cos-bead-crumb";
     }
 
     if( data.Name == "Array Method Calls"){this.hideSubMenu(); this.showArrayMethodCalls = true;}
