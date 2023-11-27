@@ -178,8 +178,148 @@
           <li><p><span>Value Of</span> - Return the primitive value of a string object.</p></li>
         </ul>
       </ul>
+      <ul style="list-style-type: none;">
+        <li style="color: salmon" > <h2>Regular Expression</h2></li>
+        <ul>
+          <li><p><span>Object Notation</span> - There are two ways to create a RegExp object: a literal notation and a constructor.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Object Constructor</span> - There are two ways to create a RegExp object: a literal notation and a constructor.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Reg Expr</span> - The exec and test methods are similar to the match method. The only difference is that the match method returns all matches in an array, while with exec and test methods, we need a looping structure.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Exec</span> - The exec() method executes a search for a match in a specified string. Returns a result array (match_value,index,inpute_string,group_name), or null.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Test</span> - The test() method executes a search for a match between a regular expression and a specified string. Return boolean.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Match</span> - The match() method retrieves the result of matching a string of the match in an array.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Match All</span> - The matchAll() method returns an iterator of all results matching a string against a regular expression, including capturing groups.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Replace</span> - The replace() method returns a new string with first of a pattern replaced by a replacement. Replace first occurrence.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Replace All</span> - The replaceAll() method returns a new string with all matches of a pattern replaced by a replacement.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Search</span> - The search() method executes a search for a match between a regular expression and this String object. Return index first occurrence.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Start/End Indices</span> - The "d" flag indicates that the result of a regular expression match should contain the start and end indices of the substrings of each capture group.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Global</span> - The "g" flag indicates that the regular expression should be tested against all possible matches in a string. A regular expression defined as both global ("g") and sticky ("y") will ignore the global flag and perform sticky matches.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Case Insensitive</span> - Does a case-insensitive search.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Multi Line Search</span> - \n - Find a Multi Line search.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Match Newline</span> - Allows to match newline characters.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Unicode</span> - "unicode"; treat a pattern as a sequence of unicode code points. Unicode Character "LATIN SMALL LETTER A" (U+0061)</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Sticky</span> - Perform a "sticky" search that matches starting at the current position in the target string. The search is the word (the), space( ), and many letters. With the Sticky Flag set the system look for match at the Last Index. The system does not look for match any other place in the sentence.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Matches Either</span> - (x|y) - Matches either "x" or "y". For example, /green|red/ matches "green" in "green apple" and "red" in "red apple".</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Matches Any One</span> - [xyz] or [a-c] - A character class. Matches any one of the enclosed characters. You can specify a range of characters by using a hyphen, but if the hyphen appears as the first or last character enclosed in the square brackets it is taken as a literal hyphen to be included in the character class as a normal character. For example, [abcd] is the same as [a-d]. They match the "b" in "brisket", and the "c" in "chop". For example, [abcd-] and [-abcd] match the "b" in "brisket", the "c" in "chop", and the "-" (hyphen) in "non-profit".</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Negated</span> - [^xyz] or [^a-c] - A negated or complemented character class. That is, it matches anything that is not enclosed in the brackets. You can specify a range of characters by using a hyphen, but if the hyphen appears as the first or last character enclosed in the square brackets it is taken as a literal hyphen to be included in the character class as a normal character. For example, [^abc] is the same as [^a-c]. They initially match "o" in "bacon" and "h" in "chop".</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Capturing Group</span> - (x) - Capturing group: Matches x and remembers the match. For example, /(foo)/ matches and remembers "foo" in "foo bar". \n -Where "n" is a positive integer. \1 refers to the first capturing group in the regular expression. \2 will refer to the second capturing group and \n will refer to an nth capturing group. Where "n" is a positive integer. A back reference to the last substring matching the n parenthetical in the regular expression (counting left parentheses). For example, /apple(,)\sorange\1/ matches "apple, orange," in "apple, orange, cherry, peach".</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Single</span> - Find a single character, except newline or line terminator</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Word</span> - \w - Find a word character. A word character is a character a-z, A-Z, 0-9, including _ (underscore).</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Non Word</span> - \W - Find a non-word character.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Digit</span> - \d - Find a digit character</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Non digit</span> - \d - Find a digit.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Whitespace</span> - \s - Find a whitespace character.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Non Whitespace</span> - \S - Find a non-whitespace character.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Beginning End Word</span> - \b - Find a match at the beginning/end of a word, beginning like this: \bHI, end like this: HI\b.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Non Beginning End Word</span> - \B - Find a match, but not at the beginning/end of a word.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Null</span> - \0 - Find a NULL character.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Newline</span> - \n - Find a new line character.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Form Feed</span> - \f - Find a form feed character.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Carriage Return</span> - \n - Find a new line character.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Tab</span> - \t - Find a tab character.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Vertical Tab</span> - \v - Find a vertical tab character.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Octal Number</span> - \xxx - Find the character specified by an octal number xxx.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Hexa Decimal Number</span> - \xdd - Find the character specified by a hexadecimal number dd.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>At Least One</span> - n+ - Matches any string that contains <b>at least one</b> n.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Zero Or More</span> - n* - Matches any string that contains <b>zero or more</b> occurrences of n.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Zero Or One</span> - n? - Matches any string that contains <b>zero or one</b> occurrences of n.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Sequence of</span> - &lcub; X &rcub; - Matches any string that contains a <b>sequence of</b> X n's.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>End</span> - n$ - Matches any string with n at the <b>end</b> of it.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Beginning</span> - ^n - Matches any string with n at the <b>beginning</b> of it.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Specific String</span> - ?=n - Matches any string that is followed by a specific string n.</p></li>
+        </ul>
+        <ul>
+          <li><p><span>Non Specific String</span> - ?!n - Matches any string that is not followed by a specific string n.</p></li>
+        </ul>
+      </ul>
       <br><br><br><br><br><br>
-
 </div>
 
 
