@@ -24,14 +24,14 @@ export class NavbarComponent {
 
   main:string= "hidden";
 
-  mainArray:string = "cos-bead-crumb";
-  mainString:string = "cos-bead-crumb";
-  mainRegExpr:string = "cos-bead-crumb";
+  mainArray:string = "cos-bead-crumb cos-text-decor-underline";
+  mainString:string = "cos-bead-crumb cos-text-decor-underline";
+  mainRegExpr:string = "cos-bead-crumb cos-text-decor-underline";
 
   showMenu(){
-    this.mainArray = "cos-bead-crumb";
-    this.mainString = "cos-bead-crumb";
-    this.mainRegExpr =  "cos-bead-crumb";
+    this.mainArray = "cos-bead-crumb cos-text-decor-underline";
+    this.mainString = "cos-bead-crumb cos-text-decor-underline";
+    this.mainRegExpr =  "cos-bead-crumb cos-text-decor-underline";
   }
   hideMenu(){
     this.mainArray =  "hidden";
