@@ -156,21 +156,21 @@ export class NavbarComponent {
       this.hideMenu();
       this.showArray();
 
-      this.main = "fs-5 fw-bold cos-bead-crumb";
+      this.main = "fs-5 fw-bold cos-main-title";
     }
 
     if( data.Name == "String"){
       this.hideMenu();
       this.showString();
 
-      this.main = "fs-5 fw-bold cos-bead-crumb";
+      this.main = "fs-5 fw-bold cos-main-title";
     }
 
     if( data.Name == "RegExpr"){
       this.hideMenu();
       this.showRegExpr();
 
-      this.main = "fs-5 fw-bold cos-bead-crumb";
+      this.main = "fs-5 fw-bold cos-main-title";
     }
 
     if( data.Name == "Array Method Calls"){this.hideSubMenu(); this.showArrayMethodCalls = true;}

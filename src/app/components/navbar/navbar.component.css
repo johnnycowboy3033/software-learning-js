@@ -42,6 +42,18 @@
     padding: 10px;
 }
 
+.cos-main-title{
+  background: none!important;
+  border: none;
+  padding: 5px !important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .cos-bead-crumb{
   background: none!important;
   border: none;
