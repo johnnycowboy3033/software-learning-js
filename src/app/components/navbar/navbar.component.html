@@ -28,6 +28,8 @@
     <button [ngClass]="[regExprMetaCharacters]" (click)="ListMenu({ 'Name':'RegExpr Meta Characters'} )"  ><span class="cos-text-decor-underline" >Meta Characters</span></button>
     <button [ngClass]="[regExprQuantifiers]" (click)="ListMenu({ 'Name':'RegExpr Quantifiers'} )"  ><span class="cos-text-decor-underline" >Quantifiers</span></button>
 
+    <br><br>
+
     <div *ngIf="showArrayMethodCalls; else elseBlockArrayMethodCalls">
       <table class="cos-bread-crumb-table" >
 
