@@ -28,12 +28,13 @@
   }
 }
 
+/*The Bread Crumb/Drop Down Menu Button*/
 #cos-menu-select{
   border-radius: 8px;
   background-color:#fba69c;
   border: 2px solid ghostwhite;
   font-size: 16px;
-  width: 150px;
+  width: 200px;
   color:white;
   margin-top: 3px;
 }

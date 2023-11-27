@@ -25,6 +25,12 @@ export class Results {
   private _showStringResults:boolean = false;
   private _showExecMethod:boolean = false;
 
+  /*
+  Compare initial and finial Arrays for change between the two arrays if there are difference should be marked true.
+  If the two arrays have the same values should set the compare values index should be marked false.
+   */
+  private _compareStates:boolean[] = [];
+
 
   /*
   ShowPage - Show the whole Show Component.
@@ -80,6 +86,9 @@ export class Results {
 
   get showStringResults(): boolean {return this._showStringResults;}
   set showStringResults(value: boolean) {this._showStringResults = value;}
+
+  get compareStates(): boolean[] {return this._compareStates;}
+  set compareStates(value: boolean[]) {this._compareStates = value;}
 
   toString(){
     let returnTemp = "";
@@ -173,7 +182,35 @@ export class Results {
     } else {
       console.log('ERROR: run-function-array-.component - submitForm - Did not find-array assign the Type Result in the Component Context in the Array Module.')
     }
+
+    this.compareArrays();
   }
+
+  compareArrays(){
+
+    if( typeof  this._context != "undefined" &&
+        typeof  this._context._shouldCompare != "undefined" &&
+        typeof  this._context._variableValues != "undefined"
+    ){
+      if( this._context._shouldCompare && this._context._variableValues.length == 1){
+        let initial = this._context._variableValues[0];
+        let finial = this._resultArray;
+
+        this.compareStates = new Array(finial.length);
+        this.compareStates.fill(false);
+
+        for( const[ index, element ] of finial.entries()){
+
+          if(initial[index] != element){
+            this.compareStates[index] = true;
+          }
+
+        }
+      }
+    }
+
+
+  };
 
   createAssignStatement(){
 

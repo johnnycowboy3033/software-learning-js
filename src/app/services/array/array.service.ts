@@ -8,7 +8,6 @@ import {ArrayNames} from "../../enumerates/array/array-names";
 import {ArrayComponentNames} from "../../enumerates/array/array-component-names";
 import {ArrayVariables} from "../../enumerates/array/array-variables";
 import {ArrayTypeResults} from "../../enumerates/array/array-type-results";
-import {ArrayTableNameType} from "../../enumerates/array/array-table-name-type";
 import {MethodTypesTypes} from "../../enumerates/array/array-method-types";
 
 @Injectable({
@@ -85,7 +84,6 @@ export class ArrayService extends MainService{
     this.context.set(ArrayComponentNames.Entries,
       new ContextArray({
           ComponentType : ContextComponentType.Array,
-          TableNameType:ArrayTableNameType.NotDefault,
           ShouldCompare: true,
           Begin:{ DefaultNames:[ArrayNames.Fruits] },
           CodeDescription:"Array Iterator object that contains the key/value pairs for each index in the array.",
@@ -182,7 +180,6 @@ export class ArrayService extends MainService{
     this.context.set(ArrayComponentNames.ForEach,
       new ContextArray({
           ComponentType : ContextComponentType.Array,
-          TableNameType:ArrayTableNameType.NotDefault,
           ShouldCompare: true,
           Begin:{ DefaultNames:[ ArrayNames.Fruits] },
           CodeDescription:"List each item in the array.",
@@ -278,7 +275,6 @@ export class ArrayService extends MainService{
     this.context.set(ArrayComponentNames.Keys,
       new ContextArray({
           ComponentType : ContextComponentType.Array,
-          TableNameType:ArrayTableNameType.NotDefault,
           ShouldCompare: true,
           Begin:{ DefaultNames:[ArrayNames.Fruits] },
           CodeDescription:"Create an Array Iterator object, containing the keys-array of the array.",
@@ -307,7 +303,6 @@ export class ArrayService extends MainService{
     this.context.set(ArrayComponentNames.Map,
       new ContextArray({
           ComponentType : ContextComponentType.Array,
-          TableNameType:ArrayTableNameType.NotDefault,
           ShouldCompare: true,
           CodeDescription:"The Map object holds key-value pairs and remembers the original insertion order of the keys-array.",
           TablesCode:'array.map(function(currentValue, index, arr), thisValue)',
@@ -384,7 +379,6 @@ export class ArrayService extends MainService{
     this.context.set(ArrayComponentNames.Reduce,
       new ContextArray({
           ComponentType : ContextComponentType.Array,
-          TableNameType:ArrayTableNameType.NotDefault,
           ShouldCompare: true,
           Begin:{ DefaultNames:[ArrayNames.Fruits] },
           CodeDescription:"The reduce() method executes a user-supplied “reducer” callback function on each element of the array, passing in the return value from-array the calculation on the preceding element.",
@@ -417,7 +411,6 @@ export class ArrayService extends MainService{
     this.context.set(ArrayComponentNames.ReduceRight,
       new ContextArray({
           ComponentType : ContextComponentType.Array,
-          TableNameType:ArrayTableNameType.NotDefault,
           ShouldCompare: true,
           Begin:{ DefaultNames:[ArrayNames.Fruits] },
           CodeDescription:"The reduceRight() method applies a function against an accumulator and each value of the array (from-array right-to-left) to reduce-array it to a single value.",

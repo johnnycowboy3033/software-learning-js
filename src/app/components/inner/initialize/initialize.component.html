@@ -8,7 +8,7 @@
     <tr>
           <div *ngFor="let element of assignStatement; index as j"  class="col">
 
-                <td class="table-string">  let  <span class="element-assign">{{ element[j][0] }}</span>   =  &#34;<span class="element-data">{{element[j][1] }}</span>&#34; &#59;  </td>
+              <td class="table-string">  let  <span class="element-assign">{{ element.assignment }}</span>   =  &#34;<span class="element-data">{{ element.value }}</span>&#34; &#59;  </td>
 
           </div>
     </tr>

@@ -4,6 +4,7 @@ import {StringService} from "../../../services/string/string.service";
 import {HelperService} from "../../../services/helper.service";
 import {Router} from "@angular/router";
 import {MainModule} from "../../../modules/main/main.module";
+import {Statement} from "../../../classes/nesting/statement/statement";
 
 @Component({
   selector: 'app-initialize',
@@ -34,14 +35,14 @@ export class InitializeComponent extends  MainModule{
 
         this.assign = this.contextMap.begin.defaultNames;
 
+        this.assignStatement = [];
+
         this.assign.forEach((value, index, array) => {
-          // console.log(this.service.arraysMap.get(value));
 
-          let assignTemp = [];
-          assignTemp[0]=value;
-          assignTemp[1]=this.service.arraysMap.get(value);
+          let state = new Statement(value, this.service.arraysMap.get(value))
 
-          this.assignStatement.push([assignTemp]);
+          this.assignStatement.push(state);
+
         });
       }
     }

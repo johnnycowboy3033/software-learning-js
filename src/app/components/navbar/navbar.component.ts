@@ -7,54 +7,63 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  /*********************************\
+   * Bread Crumb/Drop Down Menu     *
+  \*********************************/
+
   showBreadCrumbs:boolean = true;
-  buttonLabel:string = "Collapse";
+  buttonLabel:string = "Bread Crumb Menu";
 
   changeMenu(){
     //Toggle button label between Collapse and Expand
     this.showBreadCrumbs = !this.showBreadCrumbs;
 
     if(this.showBreadCrumbs){
-      this.buttonLabel = "Collapse";
+      this.buttonLabel = "Bread Crumb Menu";
     }else{
-      this.buttonLabel = "Expand";
+      this.buttonLabel = "Dropdown Link";
 
     }
   };
 
-  main:string= "hidden";
+  /**********************************************************************\
+   * Banner Menu - Array, String, and Regular Expression Hype Link
+   * Menu - For the Array (Banner Menu) is Method Calls, Data Structures,
+   * and Functions Calls
+   * Sub Menu - Concatenate, Copy Within, Fill, Include, etc...
+   \**********************************************************************/
+
+  main:string= "hidden";// Hype Link to Hide/Show Banner Menu
 
   mainArray:string = "cos-bead-crumb cos-text-decor-underline";
   mainString:string = "cos-bead-crumb cos-text-decor-underline";
   mainRegExpr:string = "cos-bead-crumb cos-text-decor-underline";
 
-  showMenu(){
+  showBanner(){
     this.mainArray = "cos-bead-crumb cos-text-decor-underline";
     this.mainString = "cos-bead-crumb cos-text-decor-underline";
     this.mainRegExpr =  "cos-bead-crumb cos-text-decor-underline";
   }
-  hideMenu(){
+  hideBanner(){
     this.mainArray =  "hidden";
     this.mainString =  "hidden";
     this.mainRegExpr =   "hidden";
   }
 
-  hideTablesMenus(){
-    this.showArrayMethodCalls = false;
 
-  }
+
+  /***********************\
+   * Menu                *
+  \***********************/
 
   arrayMethodCalls:string = "hidden";
-  showArrayMethodCalls:boolean = false;
   arrayDataStructures:string = "hidden";
-  showArrayDataStructures:boolean = false;
   arrayFunctionCalls:string = "hidden";
-  showArrayFunctionCalls:boolean = false;
 
   showArray(){
     this.arrayMethodCalls = "cos-bead-crumb";
-    this.arrayDataStructures = "cos-bead-crumb";
-    this.arrayFunctionCalls = "cos-bead-crumb";
+    this.arrayDataStructures = "cos-bead-crumb cos-text-decor-underline\"";
+    this.arrayFunctionCalls = "cos-bead-crumb cos-text-decor-underline\"";
   }
 
   hideArray(){
@@ -64,13 +73,11 @@ export class NavbarComponent {
   }
 
   stringMethodCalls:string = "hidden";
-  showStringMethodCalls:boolean = false;
   stringSearchCalls:string = "hidden";
-  showStringSearchCalls:boolean = false;
 
   showString(){
     this.stringMethodCalls = "cos-bead-crumb";
-    this.stringSearchCalls = "cos-bead-crumb";
+    this.stringSearchCalls = "cos-bead-crumb cos-text-decor-underline";
   }
 
   hideString(){
@@ -78,23 +85,14 @@ export class NavbarComponent {
     this.stringSearchCalls = "hidden";
   }
 
-
   regExprObjects:string = "hidden";
-  showRegExprObjects:boolean = false;
   regExprClasses:string = "hidden";
-  showRegExprClasses:boolean = false;
   regExprMethods:string = "hidden";
-  showRegExprMethods:boolean = false;
   regExprStringMethods:string = "hidden";
-  showRegExprStringMethods:boolean = false;
   regExprModifiers:string = "hidden";
-  showRegExprModifiers:boolean = false;
   regExprGroupsAndRanges:string = "hidden";
-  showRegExprGroupsAndRanges:boolean = false;
   regExprMetaCharacters:string = "hidden";
-  showRegExprMetaCharacters:boolean = false;
   regExprQuantifiers:string = "hidden";
-  showRegExprQuantifiers:boolean = false;
 
   showRegExpr(){
     this.regExprObjects = "cos-bead-crumb";
@@ -118,7 +116,28 @@ export class NavbarComponent {
     this.regExprQuantifiers  = "hidden";
   }
 
+  /************************\
+   * Sub Menu              *
+  \************************/
+
+  showArrayMethodCalls:boolean = false;
+  showArrayDataStructures:boolean = false;
+  showArrayFunctionCalls:boolean = false;
+
+  showStringMethodCalls:boolean = false;
+  showStringSearchCalls:boolean = false;
+
+  showRegExprObjects:boolean = false;
+  showRegExprClasses:boolean = false;
+  showRegExprMethods:boolean = false;
+  showRegExprStringMethods:boolean = false;
+  showRegExprModifiers:boolean = false;
+  showRegExprGroupsAndRanges:boolean = false;
+  showRegExprMetaCharacters:boolean = false;
+  showRegExprQuantifiers:boolean = false;
+
   hideSubMenu(){
+
     this.showArrayMethodCalls = false;
     this.showArrayDataStructures = false;
     this.showArrayFunctionCalls = false;
@@ -138,10 +157,10 @@ export class NavbarComponent {
 
   ListMenu(data:any){
 
-    this.hideTablesMenus();
-
+    //Click on the Main Hype Link Show the Array, String, and Regular Expression Hype Link (Banner Menu)
     if(data.Name == "Main"){
-      this.showMenu();
+      this.showBanner();
+
       this.hideArray();
       this.hideString();
       this.hideRegExpr();
@@ -153,41 +172,42 @@ export class NavbarComponent {
     }
 
     if( data.Name == "Array"){
-      this.hideMenu();
+      this.hideBanner();
       this.showArray();
 
       this.main = "fs-5 fw-bold cos-bead-crumb";
     }
 
     if( data.Name == "String"){
-      this.hideMenu();
+      this.hideBanner();
       this.showString();
 
       this.main = "fs-5 fw-bold cos-bead-crumb";
     }
 
     if( data.Name == "RegExpr"){
-      this.hideMenu();
+      this.hideBanner();
       this.showRegExpr();
 
       this.main = "fs-5 fw-bold cos-bead-crumb";
     }
 
-    if( data.Name == "Array Method Calls"){this.hideSubMenu(); this.showArrayMethodCalls = true;}
-    if( data.Name == "Array Data Structures"){this.hideSubMenu(); this.showArrayDataStructures = true;}
-    if( data.Name == "Array Function Calls"){this.hideSubMenu(); this.showArrayFunctionCalls = true;}
+    //After click on Menu item will show Sub Menus that is associated with the Menu.
+    if( data.Name == "Array Method Calls"){this.hideSubMenu(); this.showArray(); this.showArrayMethodCalls = true; this.arrayMethodCalls = "";}
+    if( data.Name == "Array Data Structures"){this.hideSubMenu(); this.showArray(); this.showArrayDataStructures = true; this.arrayDataStructures = "";}
+    if( data.Name == "Array Function Calls"){this.hideSubMenu(); this.showArray(); this.showArrayFunctionCalls = true; this.arrayFunctionCalls = "";}
 
-    if( data.Name == "String Method Calls"){this.hideSubMenu(); this.showStringMethodCalls = true;}
-    if( data.Name == "String Search Calls"){this.hideSubMenu(); this.showStringSearchCalls = true;}
+    if( data.Name == "String Method Calls"){this.hideSubMenu(); this.showString(); this.showStringMethodCalls = true; this.stringMethodCalls = "";}
+    if( data.Name == "String Search Calls"){this.hideSubMenu(); this.showString(); this.showStringSearchCalls = true; this.stringSearchCalls = "";}
 
-    if( data.Name == "RegExpr Method Calls"){this.hideSubMenu(); this.showRegExprObjects = true;}
-    if( data.Name == "RegExpr Classes"){this.hideSubMenu(); this.showRegExprClasses = true;}
-    if( data.Name == "RegExpr Methods"){this.hideSubMenu(); this.showRegExprMethods = true;}
-    if( data.Name == "RegExpr String Methods"){this.hideSubMenu(); this.showRegExprStringMethods = true;}
-    if( data.Name == "RegExpr Modifiers"){this.hideSubMenu(); this.showRegExprModifiers = true;}
-    if( data.Name == "RegExpr Groups and Ranges"){this.hideSubMenu(); this.showRegExprGroupsAndRanges = true;}
-    if( data.Name == "RegExpr Meta Characters"){this.hideSubMenu(); this.showRegExprMetaCharacters = true;}
-    if( data.Name == "RegExpr Quantifiers"){this.hideSubMenu(); this.showRegExprQuantifiers = true;}
+    if( data.Name == "RegExpr Method Calls"){this.hideSubMenu(); this.showRegExpr(); this.showRegExprObjects = true; this.regExprObjects = "";}
+    if( data.Name == "RegExpr Classes"){this.hideSubMenu(); this.showRegExpr(); this.showRegExprClasses = true; this.regExprClasses = "";}
+    if( data.Name == "RegExpr Methods"){this.hideSubMenu(); this.showRegExpr(); this.showRegExprMethods = true; this.regExprMethods = "";}
+    if( data.Name == "RegExpr String Methods"){this.hideSubMenu(); this.showRegExpr(); this.showRegExprStringMethods = true; this.regExprStringMethods = "";}
+    if( data.Name == "RegExpr Modifiers"){this.hideSubMenu(); this.showRegExpr(); this.showRegExprModifiers = true; this.regExprModifiers = "";}
+    if( data.Name == "RegExpr Groups and Ranges"){this.hideSubMenu(); this.showRegExpr(); this.showRegExprGroupsAndRanges = true; this.regExprGroupsAndRanges = "";}
+    if( data.Name == "RegExpr Meta Characters"){this.hideSubMenu(); this.showRegExpr(); this.showRegExprMetaCharacters = true; this.regExprMetaCharacters = "";}
+    if( data.Name == "RegExpr Quantifiers"){this.hideSubMenu(); this.showRegExpr(); this.showRegExprQuantifiers = true; this.regExprQuantifiers = "";}
 
   };
 

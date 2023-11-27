@@ -23,4 +23,16 @@ export class ShowComponent {
         + "]" ;
   }
 
+  setRowColor(index:number){
+
+    if (this.displayResult.compareStates[index] ){
+      return "row-color";
+    }else{
+      return "";
+    }
+
+    return "";
+
+  };
+
 }
