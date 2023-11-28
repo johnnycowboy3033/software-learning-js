@@ -18,3 +18,7 @@ td {
 .row-color{
     background-color: #F18787;
 }
+
+td.index:nth-child(even) {
+    background-color: lightskyblue;
+}
