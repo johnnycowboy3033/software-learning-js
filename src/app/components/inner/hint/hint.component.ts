@@ -101,11 +101,19 @@ export class HintComponent  extends MainModule implements OnInit  {
 
     // console.log( " Title: "+ this.title);
 
-    this.contextMap.begin.defaultNames.forEach((value:string,index:number,array:any)=>{
-      if(checkValue.includes(symbols[index])){
-        result =  result.replace(symbols[index],value);
+    if( typeof this.contextMap != "undefined"){
+      if( typeof this.contextMap.begin != "undefined"){
+        if( typeof this.contextMap.begin.defaultNames != "undefined"){
+          this.contextMap.begin.defaultNames.forEach((value:string,index:number,array:any)=>{
+            if(checkValue.includes(symbols[index])){
+              result =  result.replace(symbols[index],value);
+            }
+          });
+        }
       }
-    });
+
+
+    }
 
     return result;
 

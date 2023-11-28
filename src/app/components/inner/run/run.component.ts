@@ -104,7 +104,10 @@ export class RunComponent extends  MainModule implements OnInit {
 
       if( radioButtonTypeResult !=  serviceTypeResult){
         this.displayMessage  = this.displayMessage  + 'You select the wrong Type Result. Correct Type Result is ' +
-            serviceTypeResult.toUpperCase() + " not " + radioButtonTypeResult.toUpperCase() + '. ';
+            serviceTypeResult.toUpperCase() ;
+        if(this.results.typeResult == "") {
+          this.displayMessage  = this.displayMessage +" not " + radioButtonTypeResult.toUpperCase() + '. ';
+        }
         this.showSuccess = false;
       }
     }

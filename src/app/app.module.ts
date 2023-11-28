@@ -140,7 +140,7 @@ let appRoutes: Routes = [
   { path: 'RegExpr/Beginning_End_Word', component: RegExprBasicComponent    },
   { path: 'RegExpr/Non_Beginning_End_Word', component: RegExprBasicComponent    },
   { path: 'RegExpr/Null', component: RegExprBasicComponent    },
-  { path: 'RegExpr/New_Line', component: RegExprBasicComponent    },
+  { path: 'RegExpr/New_line', component: RegExprBasicComponent    },
   { path: 'RegExpr/Form_Feed', component: RegExprBasicComponent    },
   { path: 'RegExpr/Carriage_Return', component: RegExprBasicComponent     },
   { path: 'RegExpr/Tab', component: RegExprBasicComponent    },

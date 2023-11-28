@@ -38,7 +38,7 @@ export class RegExprService extends MainService{
   TestTwo:string='test1test2';
   Ball:string='ball bat';
   Foo:string='foo bar foo bar foo';
-  Dot:string='bar\\nexample foo example';
+  Dot:string='bar \n example foo example';
   Fish:string='a small fish';
   Dog:string="Today, the man and the dog went to the park.";
   Apple:string='re apple, green apple, red apple, green apple, gren apple, gr apple, blue apple, yellow apple';
@@ -101,7 +101,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: "There are two ways to create a RegExp object: a literal notation and a constructor.",
           Code:{
-            Call:'/cat/g;',
+            Call:'/cat/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           TablesCode:'/pattern/modifiers;',
@@ -206,7 +206,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: "The replace() method returns a new string with first of a pattern replaced by a replacement. Replace first occurrence.",
           Code:{
-            Call:StringVariables.Object +'.replace("dog", "monkey");',
+            Call:RegExprVariables.Object +'.replace("test1", "monkey");',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.TestTwo]},
@@ -268,7 +268,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: 'Does a case-insensitive search.',
           Code:{
-            Call:'/foo/gi/',
+            Call:'/foo/gi',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.Foo]},
@@ -280,7 +280,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: 'Allows to match newline characters.',
           Code:{
-            Call:'/bar.example/s',
+            Call:'/ \\n /g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.Dot]},
@@ -314,7 +314,7 @@ export class RegExprService extends MainService{
     this.context.set(RegExprComponentNames.Matches_Either,
       new ContextRegExpr({
           ComponentType : ContextComponentType.RegExr,
-          CodeDescription: ' (x|y) - Matches either "x" or "y". For example, /green|red/ matches "green" in "green apple" and "red" in "red apple".',
+          CodeDescription: '(x|y) - Matches either "x" or "y". For example, /green|red/ matches "green" in "green apple" and "red" in "red apple".',
           Code:{
             Call:'/(red|green)/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
@@ -326,7 +326,7 @@ export class RegExprService extends MainService{
     this.context.set(RegExprComponentNames.Matches_Any_One,
       new ContextRegExpr({
           ComponentType : ContextComponentType.RegExr,
-          CodeDescription: '•\t[xyz] or [a-c] - A character class. Matches any one of the enclosed characters. You can specify a range of characters by using a hyphen, but if the hyphen appears as the first or last character enclosed in the square brackets it is taken as a literal hyphen to be included in the character class as a normal character. For example, [abcd] is the same as [a-d]. They match the "b" in "brisket", and the "c" in "chop". For example, [abcd-] and [-abcd] match the "b" in "brisket", the "c" in "chop", and the "-" (hyphen) in "non-profit".',
+          CodeDescription: '[xyz] or [a-c] - A character class. Matches any one of the enclosed characters. You can specify a range of characters by using a hyphen, but if the hyphen appears as the first or last character enclosed in the square brackets it is taken as a literal hyphen to be included in the character class as a normal character. For example, [abcd] is the same as [a-d]. They match the "b" in "brisket", and the "c" in "chop". For example, [abcd-] and [-abcd] match the "b" in "brisket", the "c" in "chop", and the "-" (hyphen) in "non-profit".',
           Code:{
             Call:'/[aeiouy]/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
@@ -365,7 +365,7 @@ export class RegExprService extends MainService{
     this.context.set(RegExprComponentNames.Single,
       new ContextRegExpr({
           ComponentType : ContextComponentType.RegExr,
-          CodeDescription: '. - Find a single character, except newline or line terminator',
+          CodeDescription: 'Find a single character, except newline or line terminator',
           Code:{
             Call:'/h.t/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
@@ -451,7 +451,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '\\b - Find a match at the beginning/end of a word, beginning like this: \\bHI, end like this: HI\\b.',
           Code:{
-            Call:'/\\bLO/ OR /LO\\b/',
+            Call:'/\\bHE/ OR /LO\\b/',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.Look]},
@@ -463,7 +463,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '\\B - Find a match, but not at the beginning/end of a word.',
           Code:{
-            Call:'/\\BLO/ OR /LO\\B/',
+            Call:'/\\BLO/ OR /HE\\B/',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.Look]},
@@ -482,7 +482,7 @@ export class RegExprService extends MainService{
         }
       ));
 
-    this.context.set(RegExprComponentNames.New_Line,
+    this.context.set(RegExprComponentNames.New_line,
       new ContextRegExpr({
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '\\n - Find a new line character.',
@@ -559,7 +559,7 @@ export class RegExprService extends MainService{
           ComponentType : ContextComponentType.RegExr,
           CodeDescription: '\\xdd - Find the character specified by a hexadecimal number dd. \\udddd - Find the Unicode character specified by a hexadecimal number dddd.Do a global search for the hexadecimal number 57 (W) in a string',
           Code:{
-            Call:'/\x57/g OR /\u0057/g',
+            Call:'/\\x57/g OR /\\u0057/g',
             TypeResults: RegExprTypeResults.ReplaceMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.W3Schools]},

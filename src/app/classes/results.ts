@@ -228,28 +228,46 @@ export class Results {
   createAssignStatement(){
 
     let buildAssign = "";
-    for( const[index,element]  of this._context.begin.defaultNames.entries()){
 
-      let temp = "";
-/*
-      Create the assignment statement which can be an array or string.
-      For example might be for array to create
-          let peoples = ["Cecilie", "Lone", "Emil", "Tobias", "Linus"];
-       or for string
-          let helloWorld = "Hello World" ;
+    if( typeof  this._context != "undefined") {
+      if (typeof this._context.begin != "undefined") {
+        if (typeof this._context.begin.defaultNames != "undefined") {
 
- */
-      if(Array.isArray(this._context.variableValues[index])){
-        temp= this._context.variableValues[index].join();
-        temp = temp.replaceAll(',','","');
-        this._assignStatement[index] = 'let '+element+' = ["'+ temp  +'"];';
-      }else{
-        temp= this._context.variableValues[index]
-        this._assignStatement[index] = 'let '+element+' = '+ temp  +';';
+
+                for (const [index, element] of this._context.begin.defaultNames.entries()) {
+
+                      let temp = "";
+                      /*
+                            Create the assignment statement which can be an array or string.
+                            For example might be for array to create
+                                let peoples = ["Cecilie", "Lone", "Emil", "Tobias", "Linus"];
+                             or for string
+                                let helloWorld = "Hello World" ;
+
+                       */
+                      if (typeof this._context != "undefined") {
+                        if (typeof this._context.variableValues != "undefined") {
+
+                          if (Array.isArray(this._context.variableValues[index])) {
+                            //Using join and replaceAll to convert Orange,Apple to "Orange","Apple"
+                            temp = this._context.variableValues[index].join();
+                            temp = temp.replaceAll(',', '","');
+                            this._assignStatement[index] = 'let ' + element + ' = ["' + temp + '"];';
+                          } else {
+                            temp = this._context.variableValues[index]
+                            this._assignStatement[index] = 'let ' + element + ' = ' + temp + ';';
+                          }
+
+                          buildAssign = buildAssign + this._assignStatement[index];
+
+
+                        }
+                      }
+
+                }
+
+        }
       }
-
-      buildAssign = buildAssign + this._assignStatement[index];
-
     }
 
     return buildAssign;
@@ -354,32 +372,35 @@ export class Results {
 
   findReplaceMethod(){
 
-    //Remove the second inner quotation marks. For Example ' "Hello World" '
-    let tempFixed = this._context.variableValues[0]
-    let tempString = tempFixed.substring( 2,tempFixed.length - 2);
-
-    let regExpr = null;
-
-    if(this._code.startsWith("new")){
-
-      eval( 'regExpr = ' + this._code );
-
+    if(this._code.includes("replace")){
+      this._resultString = eval( this.createAssignStatement() + " " + this._code);
     }else{
-      let  pattern = this._code.substring( 1,this._code.lastIndexOf("/"));
-      let modified = this._code.substring( this._code.lastIndexOf("/") + 1);
+      //Remove the second inner quotation marks. For Example ' "Hello World" '
+      let tempFixed = this._context.variableValues[0]
+      let tempString = tempFixed.substring( 2,tempFixed.length - 2);
 
-      regExpr = new RegExp(pattern,modified)
+      let regExpr = null;
+
+      if(this._code.startsWith("new")){
+
+        eval( 'regExpr = ' + this._code );
+
+      }else{
+        let  pattern = this._code.substring( 1,this._code.lastIndexOf("/"));
+        let modified = this._code.substring( this._code.lastIndexOf("/") + 1);
+
+        regExpr = new RegExp(pattern,modified)
+      }
+
+      this._resultString = tempString.replace(regExpr, "X");
+
+      /*
+      console.log( "Replace Results = " + this._replaceMethod  );
+      */
     }
-
-    this._resultString = tempString.replace(regExpr, "X");
-
-    /*
-    console.log( "Replace Results = " + this._replaceMethod  );
-    */
 
     this._titleStringResult = "Replace Method";
     this._showStringResults  = true;
-
 
   };
 

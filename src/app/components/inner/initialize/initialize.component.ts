@@ -33,17 +33,22 @@ export class InitializeComponent extends  MainModule{
       if (typeof this.service.context != "undefined") {
         this.contextMap = this.service.context.get(this.title);
 
-        this.assign = this.contextMap.begin.defaultNames;
+        if (typeof this.contextMap.begin != 'undefined') {
+          if (typeof this.contextMap.begin.defaultNames != 'undefined') {
+            this.assign = this.contextMap.begin.defaultNames;
 
-        this.assignStatement = [];
+            this.assignStatement = [];
 
-        this.assign.forEach((value, index, array) => {
+            this.assign.forEach((value, index, array) => {
 
-          let state = new Statement(value, this.service.arraysMap.get(value))
+              let state = new Statement(value, this.service.arraysMap.get(value))
 
-          this.assignStatement.push(state);
+              this.assignStatement.push(state);
 
-        });
+            });
+          }
+
+        }
       }
     }
 
