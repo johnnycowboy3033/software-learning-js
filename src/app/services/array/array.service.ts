@@ -73,7 +73,7 @@ export class ArrayService extends MainService{
               'Optional. The index position to stop copying elements from-array (default is array.length-string)'
             ] },
           Code:{
-            Call: ArrayVariables.Object+'.copyWithin( 6, 0, 3);',
+            Call: ArrayVariables.Object+'.copyWithin( 5, 0, 2);',
             TypeResults: ArrayTypeResults.ChangeArray,
           },
 
