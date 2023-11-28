@@ -4,6 +4,33 @@ import {ArrayTypeResults} from "../enumerates/array/array-type-results";
 import {StringTypeResults} from "../enumerates/string/string-type-results";
 import {RegExprTypeResults} from "../enumerates/reg-expr/reg-expr-type-results";
 
+/*
+  showPage - Show the whole Show Component.
+  typeResult - This the Radio Button the user selected. For Example the typeResults for Array screens
+  can be set to ArrayTypeResults.ResultArray.
+
+  context - Passes the context object.
+
+  assignStatement - The is classes which contains assignment and value. ( let assignment = "value";)
+  code - The code the users put in the Code Editor
+
+  //Show parts of the webpage
+  titleStringResult -
+  titleArrayResult -
+
+  //The Result Type is either an array or string. The boolean or number is assigned to the resultString.
+  resultArray -
+  resultString -
+
+  showArrayResults - Stores Array.
+  showStringResults - Stores boolean, number or string.
+  showExecMethod - String arrays with [ string1,string2,etc.. index:"" , input:"", groups:"" ]
+
+  compareStates - Compare initial and finial Arrays for change between the two arrays if there are difference
+  should be marked true. If the two arrays have the same values should set the compare values
+  index should be marked false.
+ */
+
 export class Results {
 
   private _showPage: boolean = false;
@@ -25,21 +52,7 @@ export class Results {
   private _showStringResults:boolean = false;
   private _showExecMethod:boolean = false;
 
-  /*
-  Compare initial and finial Arrays for change between the two arrays if there are difference should be marked true.
-  If the two arrays have the same values should set the compare values index should be marked false.
-   */
   private _compareStates:boolean[] = [];
-
-
-  /*
-  ShowPage - Show the whole Show Component.
-
-  TypeResults - This the Radio Button the user selected. For Example the typeResults for Array screens can be set to
-  ArrayTypeResults.ResultArray.
-
- */
-
 
   constructor(data:{
     ShowPage: boolean,
