@@ -192,7 +192,10 @@ export class Results {
 
       this.findMatchAllMethod();
 
-    } else {
+    }else if(this._typeResult === RegExprTypeResults.ReplaceAllMethod) {
+      this.findReplaceAllMethod();
+
+    }else {
       console.log('ERROR: run-function-array-.component - submitForm - Did not find-array assign the Type Result in the Component Context in the Array Module.')
     }
 
@@ -240,7 +243,7 @@ export class Results {
                       /*
                             Create the assignment statement which can be an array or string.
                             For example might be for array to create
-                                let peoples = ["Cecilie", "Lone", "Emil", "Tobias", "Linus"];
+                                let people = ["Cecilie", "Lone", "Emil", "Tobias", "Linus"];
                              or for string
                                 let helloWorld = "Hello World" ;
 
@@ -293,8 +296,8 @@ export class Results {
 
     /*
      Example:
-        Remove the let from the  let peoples = ["Cecilie", "Lone", "Emil", "Tobias", "Linus"]; so
-        becomes peoples = ["Cecilie", "Lone", "Emil", "Tobias", "Linus"];
+        Remove the let from the  let people = ["Cecilie", "Lone", "Emil", "Tobias", "Linus"]; so
+        becomes people = ["Cecilie", "Lone", "Emil", "Tobias", "Linus"];
      */
     buildAssign = buildAssign.replace("let","");
 
@@ -368,6 +371,39 @@ export class Results {
     this._showStringResults = true;
 
   };
+
+  findReplaceAllMethod(){
+    if(this._code.includes("replaceAll")){
+      this._resultString = eval( this.createAssignStatement() + " " + this._code);
+    }else{
+      //Remove the second inner quotation marks. For Example ' "Hello World" '
+      let tempFixed = this._context.variableValues[0]
+      let tempString = tempFixed.substring( 2,tempFixed.length - 2);
+
+      let regExpr = null;
+
+      if(this._code.startsWith("new")){
+
+        eval( 'regExpr = ' + this._code );
+
+      }else{
+        let  pattern = this._code.substring( 1,this._code.lastIndexOf("/"));
+        let modified = this._code.substring( this._code.lastIndexOf("/") + 1);
+
+        regExpr = new RegExp(pattern,modified)
+      }
+
+      this._resultString = tempString.replaceAll(regExpr, "X");
+
+      /*
+      console.log( "Replace Results = " + this._replaceMethod  );
+      */
+    }
+
+    this._titleStringResult = "Replace All Method";
+    this._showStringResults  = true;
+
+  }
 
 
   findReplaceMethod(){

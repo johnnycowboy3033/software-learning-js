@@ -53,6 +53,13 @@
             </td>
 
             <td>
+              <!-- Replace All Method -->
+              <div class="radio-option --replace-all-method" >
+                <input type="radio" class="radio-ctrl" id="replace-all-method" name="results" value="PA" formControlName="results" (change)="changeTypeResult($event)">
+                <label for="replace-all-method" class="radio-label" >{{getTypeResult().ReplaceAllMethod}}</label>
+              </div >
+            </td>
+            <td>
               <!-- Result Number -->
               <div class="radio-option --result-number" >
                 <input type="radio" class="radio-ctrl" id="result-number" name="results" value="RN" formControlName="results" (change)="changeTypeResult($event)">

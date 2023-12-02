@@ -66,7 +66,7 @@ export class HintComponent  extends MainModule implements OnInit  {
 
   /*
   Description:
-  In the application the use can change the arrays. For example if the use want to use fruits array instead of the peoples array.
+  In the application the use can change the arrays. For example if the use want to use fruits array instead of the people array.
   I have ArrayVariables.Object = array1 and ArrayVariables.ParameterFirst = array2 as placeholder in the following :
   data:{Code:{Call:"ArrayVariables.Object + '.concat( '+ ArrayVariables.ParameterFirst + ' );'" }}}
   This method get replace the placeholder with the array names. For example array1 becomes fruits.

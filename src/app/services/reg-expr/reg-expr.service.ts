@@ -219,7 +219,7 @@ export class RegExprService extends MainService{
           CodeDescription: "The replaceAll() method returns a new string with all matches of a pattern replaced by a replacement.",
           Code:{
             Call:'/b/g',
-            TypeResults: RegExprTypeResults.ReplaceMethod,
+            TypeResults: RegExprTypeResults.ReplaceAllMethod,
           },
           Begin:{ DefaultNames:[RegExprNames.Ball]},
         }

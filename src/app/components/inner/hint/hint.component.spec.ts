@@ -27,7 +27,7 @@ describe('HintComponent', () => {
     component.context.set(ArrayComponentNames.Concatenate,
       new ContextArray( {
           ComponentType : ContextComponentType.Array,
-          Begin:{DefaultNames: [ArrayNames.Fruits,ArrayNames.Peoples]},
+          Begin:{DefaultNames: [ArrayNames.Fruits,ArrayNames.people]},
           CodeDescription:"Join several arrays into one.",
           Code:{
             Call:ArrayVariables.Object + '.concat( '+ ArrayVariables.ParameterFirst + ' );',
@@ -43,7 +43,7 @@ describe('HintComponent', () => {
   });
 
 
-  it('( replaceSymbols - Hard Code Parameters ) should array1 with fruits and array2 with peoples', () => {
+  it('( replaceSymbols - Hard Code Parameters ) should array1 with fruits and array2 with people', () => {
 
     component.title = ArrayComponentNames.Concatenate;
     component.contextMap = component.context.get(component.title);
@@ -52,11 +52,11 @@ describe('HintComponent', () => {
 
 /*    console.log('displayCall: ' + displayCall);*/
 
-    expect(displayCall).toEqual("fruits.concat( peoples );");
+    expect(displayCall).toEqual("fruits.concat( people );");
 
   });
 
-  it('( replaceSymbols - Get Parameters from Context Array Object) should array1 with fruits and array2 with peoples', () => {
+  it('( replaceSymbols - Get Parameters from Context Array Object) should array1 with fruits and array2 with people', () => {
 
     component.title = ArrayComponentNames.Concatenate;
     component.contextMap = component.context.get(component.title);
@@ -67,7 +67,7 @@ describe('HintComponent', () => {
 
     // console.log('displayCall: ' + displayCall);
 
-    expect(displayCall).toEqual("fruits.concat( peoples );");
+    expect(displayCall).toEqual("fruits.concat( people );");
 
   });
 

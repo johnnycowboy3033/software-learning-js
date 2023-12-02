@@ -32,7 +32,7 @@ export class ArrayService extends MainService{
   OrderInteger:string[] = ["1", "2", "3", "4", "5", "6", "7", "8"];
   Fruits:string[] = ["Banana", "Orange",'Melon', "Apple", "Mango", "Berries", "Watermelon"];
   UniqueInteger:string[] = ["3","8","13","11","4","6","2","1"];
-  Peoples:string[] = ["Cecilie", "Lone", "Emil", "Tobias", "Linus"];
+  people:string[] = ["Cecilie", "Lone", "Emil", "Tobias", "Linus"];
 
   constructor() {
       super();
@@ -40,7 +40,7 @@ export class ArrayService extends MainService{
       this.arraysMap.set(ArrayNames.OrderInteger, this.OrderInteger);
       this.arraysMap.set(ArrayNames.Fruits, this.Fruits);
       this.arraysMap.set(ArrayNames.UniqueInteger, this.UniqueInteger);
-      this.arraysMap.set(ArrayNames.Peoples, this.Peoples);
+      this.arraysMap.set(ArrayNames.people, this.people);
 
     this.context.set('/',
       new ContextArray({ComponentType : ContextComponentType.Array}
@@ -49,7 +49,7 @@ export class ArrayService extends MainService{
     this.context.set(ArrayComponentNames.Concatenate,
         new ContextArray( {
           ComponentType : ContextComponentType.Array,
-          Begin:{DefaultNames: [ArrayNames.Fruits,ArrayNames.Peoples]},
+          Begin:{DefaultNames: [ArrayNames.Fruits,ArrayNames.people]},
           CodeDescription:"Join several arrays into one.",
           Code:{
             Call:ArrayVariables.Object + '.concat( '+ ArrayVariables.ParameterFirst + ' );',
@@ -198,7 +198,7 @@ export class ArrayService extends MainService{
       new ContextArray({
           ComponentType : ContextComponentType.Array,
           ShouldCompare: true,
-          Begin:{ DefaultNames:[ArrayNames.Peoples] },
+          Begin:{ DefaultNames:[ArrayNames.people] },
           CodeDescription:"Create an Array from-array another array. Pass in function to change initial array.",
           TablesCode:'Array.from(object, mapFunction, thisValue)',
           MethodTable:{
@@ -328,7 +328,7 @@ export class ArrayService extends MainService{
             Logic:'empty.push(currentValue + " " + this.lastName);' ,
             TypeResults: ArrayTypeResults.EmptyArray,
           },
-          Begin:{ DefaultNames:[ArrayNames.Peoples] },
+          Begin:{ DefaultNames:[ArrayNames.people] },
 
         }
       ));

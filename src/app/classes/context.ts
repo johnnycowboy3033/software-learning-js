@@ -23,8 +23,8 @@ export class Context {
 
   Begin (Array Initialize/Initialize Components and Show Component)
     DefaultNames - (Used to calculate Display Result) This contains an array of assignment name. For example let helloWorld = "Hello World" ;
-      or let Peoples = [ 'Cecilie", "Lone", "Emil", "Tobias", "Linus"];
-      The Declaration Names would equal declarationNames = [ 'helloWorld', 'Peoples' ] ; This must match with Variable Values.
+      or let people = [ 'Cecilie", "Lone", "Emil", "Tobias", "Linus"];
+      The Declaration Names would equal declarationNames = [ 'helloWorld', 'people' ] ; This must match with Variable Values.
 
   CodeDescription (Hint Component) - This contains information about Method, For example for the Concatenate Method the Code Description is
     'Join several arrays into one.'

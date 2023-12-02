@@ -84,7 +84,7 @@ export class InitializeArrayComponent extends MainModule implements OnInit  {
   This method is for the Remove Button on the Initialize Arrays. It removes elements from the array.
   So if you have table array is people ["Cecilie", "Lone", "Emil", "Tobias", "Linus"] and you
   want to remove "Tobias" from the array. If you have initArray containing two arrays, Fruits and
-  People. Fruits be with the index 0, and People with index 1. The indexTable is 1 for Peoples Array.
+  People. Fruits be with the index 0, and People with index 1. The indexTable is 1 for people Array.
   The rowIndex would be 3 for "Tobias".
   Parameter:
   indexRow - Is the number of the element want to remove from the array
@@ -104,8 +104,8 @@ export class InitializeArrayComponent extends MainModule implements OnInit  {
 
   /*
    Description:
-   Finding the index form the array name. For example initTableName contains Fruits at index 0 and Peoples
-    at index 1 then if choose equal Peoples then indexTable would equal 1.
+   Finding the index form the array name. For example initTableName contains Fruits at index 0 and people
+    at index 1 then if choose equal people then indexTable would equal 1.
    */
   getTableIndex( tableName: string){
     let indexTable = -1;
@@ -122,14 +122,14 @@ export class InitializeArrayComponent extends MainModule implements OnInit  {
   /*
   Description:
   This method add element to the Initialize Arrays. For example if you want to element
-  Jim will be added to Peoples Array.
+  Jim will be added to people Array.
    */
 
   addElementEnd(){
 
-    // This element want to add to the array. For example want to add Jim to the Peoples Array
+    // This element want to add to the array. For example want to add Jim to the people Array
     let element : string | null | never = '';
-    //This is drop-down box contain name of the tables. For example the might have Fruit and Peoples to select from.
+    //This is drop-down box contain name of the tables. For example the might have Fruit and people to select from.
     let choose : string | null | never = '';
 
     element = this.addElementForm.value['element']!;
@@ -154,9 +154,9 @@ export class InitializeArrayComponent extends MainModule implements OnInit  {
 
   selectArray(){
 
-    //All the list of all arrays in Array Services. (Order Integer, Fruits, Unique Integer, and Peoples)
+    //All the list of all arrays in Array Services. (Order Integer, Fruits, Unique Integer, and people)
     let names : string | null | never = '';
-    //The arrays on the Initialize Arrays of the Webpage. For example the page loads up with Fruits and Peoples
+    //The arrays on the Initialize Arrays of the Webpage. For example the page loads up with Fruits and people
     let choose : string | null | never = '';
 
     names = this.selectArrayForm.value['names']!;

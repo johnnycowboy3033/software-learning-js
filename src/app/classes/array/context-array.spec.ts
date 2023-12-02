@@ -17,7 +17,7 @@ describe('ContextArray', () => {
 
     contextArray = new ContextArray( {
       ComponentType : ContextComponentType.Array,
-      Begin:{DefaultNames: [ArrayNames.Fruits,ArrayNames.Peoples]}
+      Begin:{DefaultNames: [ArrayNames.Fruits,ArrayNames.people]}
     });
 
   });
@@ -52,10 +52,10 @@ describe('ContextArray', () => {
     expect(contextArray.componentType ).toEqual( ContextComponentType.Array );
   });
 
-  it('DefaultNames length should equal 2 because it contains Fruits and Peoples', () => {
+  it('DefaultNames length should equal 2 because it contains Fruits and people', () => {
     expect(contextArray.begin?.defaultNames.length ).toEqual( 2);
     expect(contextArray.begin?.defaultNames[0]).toEqual( ArrayNames.Fruits );
-    expect(contextArray.begin?.defaultNames[1]).toEqual( ArrayNames.Peoples );
+    expect(contextArray.begin?.defaultNames[1]).toEqual( ArrayNames.people );
   });
 
 
