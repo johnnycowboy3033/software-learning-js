@@ -76,7 +76,7 @@ export class Results {
   set assignStatement(value: string[]) {this._assignStatement = value;}
 
   get code(): string {return this._code;}
-  set code(value: string) {this._code = value;}
+  set code(value: string) {this._code= value.replace("\\n"," ") ;}
 
   //Show
   get resultArray(): string[] {return this._resultArray;}
