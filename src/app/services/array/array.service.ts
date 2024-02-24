@@ -402,7 +402,7 @@ export class ArrayService extends MainService{
             Type:MethodTypesTypes.FUNC,
             Method:'ucase (total,currentValue, index,arr)',
             MethodParentheses:false,
-            Logic:'empty.push( total + " : " + currentValue + " : " + index) ;',
+            Logic:'empty.push( total + " : " + currentValue + " : " + index) ; total = total + index;  return total;',
             TypeResults: ArrayTypeResults.EmptyArray,
           },
         }
